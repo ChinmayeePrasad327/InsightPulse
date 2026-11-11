@@ -1,0 +1,25 @@
+.env
+.venv/
+venv/
+__pycache__/
+*.pyc
+.pytest_cache/
+.mypy_cache/
+*.egg-info/
+.DS_Store
+logs/
+# Trained model binaries are reproducible from the pipeline; metadata JSON is kept.
+ml/saved_models/**/*.joblib
+# Full-scale uncompressed generated data is reproducible; compressed bundle is committed.
+data/raw/full/
+data/master/full/
+data/ground_truth/full/*.csv
+data/ground_truth/full/*.json
+!data/ground_truth/full/.gitkeep
+data/processed/full/
+data/exceptions/full/
+data/exports/full/*
+!data/exports/full/*.zip
+!data/exports/full/manifest.json
+!data/exports/full/checksums.json
+data/repro_runs/
