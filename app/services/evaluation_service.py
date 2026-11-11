@@ -42,6 +42,10 @@ class EvaluationNotConfiguredError(RuntimeError):
     pass
 
 
+class EvaluationScaleMismatchError(RuntimeError):
+    """The requested ground truth does not belong to the dataset loaded in the database."""
+
+
 @dataclass(frozen=True)
 class GroundTruth:
     scale: str
@@ -111,7 +115,9 @@ def evaluate_sentiment(rows: list[dict]) -> dict:
         slices[name] = {v: _sentiment_metrics([r["sentiment_label"] for r in scored if r[key] == v],
                                               [r["pred_sentiment"] for r in scored if r[key] == v], False)
                         for v in sorted({r[key] for r in scored})}
-    for flag in ("is_sarcasm", "is_ambiguous", "needs_human_review"):
+    # Template-generated text repeats: an identical (normalised) text may occur in TRAIN and TEST.
+    # The "false" slice is the honest estimate on text the model has never seen verbatim.
+    for flag in ("is_sarcasm", "is_ambiguous", "needs_human_review", "text_seen_in_train"):
         slices[flag] = {str(v).lower(): _sentiment_metrics([r["sentiment_label"] for r in scored if r[flag] == v],
                                                            [r["pred_sentiment"] for r in scored if r[flag] == v], False)
                         for v in (True, False)}
@@ -142,6 +148,15 @@ def evaluate_themes(rows: list[dict]) -> dict:
                          "recall": round(float(r[i]), 4), "f1": round(float(f[i]), 4), "support": int(s[i])}
                         for i, t in enumerate(THEME_IDS_ORDERED)]
     res["records_without_true_theme"] = int((yt.sum(axis=1) == 0).sum())
+    seen = [i for i, r in enumerate(scored) if r["text_seen_in_train"]]
+    unseen = [i for i, r in enumerate(scored) if not r["text_seen_in_train"]]
+    res["text_seen_in_train_slices"] = {}
+    for name, idx in (("true", seen), ("false", unseen)):
+        if idx:
+            p, r, f, _ = precision_recall_fscore_support(yt[idx], yp[idx], average="micro", zero_division=0)
+            _, _, fm, _ = precision_recall_fscore_support(yt[idx], yp[idx], average="macro", zero_division=0)
+            res["text_seen_in_train_slices"][name] = {"n": len(idx), "micro_f1": round(float(f), 4),
+                                                      "macro_f1": round(float(fm), 4)}
     res["language_slices"] = {}
     for lang in sorted({r["language"] for r in scored}):
         idx = [i for i, r in enumerate(scored) if r["language"] == lang]
@@ -282,7 +297,10 @@ def evaluation_rows(engine: Engine, gt: GroundTruth) -> list[dict]:
     with engine.connect() as conn:
         preds = {r["feedback_id"]: dict(r) for r in conn.execute(text("""
             SELECT fi.feedback_id, fi.processing_status, fi.feedback_text, cs.sentiment_label, cs.needs_human_review,
-                   cs.run_id FROM feedback_items fi LEFT JOIN v_current_sentiment cs USING (feedback_id)
+                   cs.run_id,
+                   EXISTS (SELECT 1 FROM feedback_items tr WHERE tr.dataset_split = 'TRAIN'
+                           AND tr.text_hash = fi.text_hash) AS text_seen_in_train
+            FROM feedback_items fi LEFT JOIN v_current_sentiment cs USING (feedback_id)
             WHERE fi.dataset_split = 'TEST'""")).mappings()}
         themes: dict[str, list[str]] = {}
         for fid, tid in conn.execute(text("""SELECT ct.feedback_id, ct.theme_id FROM v_current_themes ct
@@ -293,13 +311,19 @@ def evaluation_rows(engine: Engine, gt: GroundTruth) -> list[dict]:
         p = preds.get(g["feedback_id"], {})
         rows.append({**g, "pred_sentiment": p.get("sentiment_label"), "pred_themes": themes.get(g["feedback_id"], []),
                      "needs_human_review": bool(p.get("needs_human_review")), "text": p.get("feedback_text", ""),
-                     "processing_status": p.get("processing_status", "MISSING")})
+                     "processing_status": p.get("processing_status", "MISSING"),
+                     "text_seen_in_train": bool(p.get("text_seen_in_train"))})
     return rows
 
 
 def compute_metrics(engine: Engine, token: str | None, scale: str | None = None, write_report: bool = True) -> dict:
     gt = open_ground_truth(token, scale)
     rows = evaluation_rows(engine, gt)
+    present = sum(1 for r in rows if r["processing_status"] != "MISSING")
+    if rows and present / len(rows) < 0.5:
+        raise EvaluationScaleMismatchError(
+            f"Only {present} of {len(rows)} '{gt.scale}' evaluation records exist in the database; "
+            "the loaded dataset is a different scale (pass ?scale=... or set DATA_SCALE).")
     with engine.connect() as conn:
         run = conn.execute(text("""SELECT run_id, sentiment_model_version, theme_model_version FROM pipeline_runs
                                    WHERE status = 'SUCCEEDED' AND sentiment_model_version IS NOT NULL

@@ -122,6 +122,42 @@ def _period_end(start: date, granularity: str) -> date:
     return end.date()
 
 
+def _attach_evidence(conn: Connection, alerts: list[dict], granularity: str, evidence_limit: int | None,
+                     filters: dict) -> None:
+    """Traceability: the negative feedback behind each alert.
+
+    One query fetches every negative (feedback, date, theme) row that falls in any alert period; rows are
+    then assigned to alerts in memory. (A query per alert used a slow generic plan once the driver
+    prepared it - minutes at full scale.)
+    """
+    if not alerts:
+        return
+    for a in alerts:
+        a["period_start"], a["period_end"] = a["period"].isoformat(), _period_end(a["period"], granularity).isoformat()
+        a["granularity"] = granularity
+    lo = min(a["period_start"] for a in alerts)
+    hi = max(a["period_end"] for a in alerts)
+    where, params = _filters(filters.get("product_id"), filters.get("channel_id"), filters.get("source_type"),
+                             date.fromisoformat(lo), date.fromisoformat(hi))
+    rows = conn.execute(text(f"""
+        SELECT fa.feedback_id, (fa.feedback_date AT TIME ZONE '{TZ}')::date AS d, ct.theme_id
+        FROM v_feedback_analytics fa LEFT JOIN v_current_themes ct ON ct.feedback_id = fa.feedback_id
+        WHERE fa.sentiment_label = 'NEGATIVE' {where}
+        ORDER BY fa.feedback_date, fa.feedback_id"""), params).all()
+    for a in alerts:
+        s, e, tid = a["period_start"], a["period_end"], a["theme_id"]
+        ids: list[str] = []
+        seen: set[str] = set()
+        for fid, d, theme in rows:
+            if s <= d.isoformat() <= e and (tid is None or theme == tid) and fid not in seen:
+                seen.add(fid)
+                ids.append(fid)
+                if evidence_limit and len(ids) >= evidence_limit:
+                    break
+        a["evidence_feedback_ids"] = ids
+        del a["period"]
+
+
 def detect_shifts(conn: Connection, granularity: str = "week", thresholds: TrendThresholds | None = None,
                   include_overall: bool = True, evidence_limit: int | None = 50, **filters) -> list[dict]:
     """Detect unusual increases in negative feedback overall and per theme."""
@@ -135,21 +171,7 @@ def detect_shifts(conn: Connection, granularity: str = "week", thresholds: Trend
         for theme_id, grp in by_theme.groupby("theme_id"):
             for a in _alerts_for_series(grp, th):
                 alerts.append({"scope": "THEME", "theme_id": theme_id, "theme_name": THEME_BY_ID[theme_id].name, **a})
-    where, params = _filters(filters.get("product_id"), filters.get("channel_id"), filters.get("source_type"),
-                             None, None)
-    for a in alerts:  # traceability: the negative feedback behind each alert
-        start = a["period"]
-        end = _period_end(start, granularity)
-        a["period_start"], a["period_end"] = start.isoformat(), end.isoformat()
-        a["granularity"] = granularity
-        q = f"""SELECT fa.feedback_id FROM v_feedback_analytics fa
-                {"JOIN v_current_themes ct ON ct.feedback_id = fa.feedback_id AND ct.theme_id = :tid" if a["theme_id"] else ""}
-                WHERE fa.sentiment_label = 'NEGATIVE'
-                  AND (fa.feedback_date AT TIME ZONE '{TZ}')::date BETWEEN :s AND :e {where}
-                ORDER BY fa.feedback_date, fa.feedback_id {f"LIMIT {int(evidence_limit)}" if evidence_limit else ""}"""
-        a["evidence_feedback_ids"] = [r[0] for r in conn.execute(
-            text(q), {"tid": a["theme_id"], "s": start, "e": end, **params})]
-        del a["period"]
+    _attach_evidence(conn, alerts, granularity, evidence_limit, filters)
     alerts.sort(key=lambda x: (x["period_start"], x["scope"], x["theme_id"] or ""))
     return alerts
 

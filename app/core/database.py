@@ -15,7 +15,10 @@ from app.core.config import get_settings
 @lru_cache
 def get_engine(url: str | None = None) -> Engine:
     """Create (once per URL) a pooled engine."""
-    return create_engine(url or get_settings().database_url, pool_pre_ping=True, future=True)
+    # prepare_threshold=None: no server-side prepared statements. Queries over the "current prediction"
+    # views get a much worse generic plan once prepared (seconds -> minutes at full scale).
+    return create_engine(url or get_settings().database_url, pool_pre_ping=True, future=True,
+                         connect_args={"prepare_threshold": None})
 
 
 def get_sessionmaker(url: str | None = None) -> sessionmaker[Session]:

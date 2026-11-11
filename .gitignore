@@ -23,4 +23,8 @@ data/exports/full/*
 !data/exports/full/*.zip
 !data/exports/full/manifest.json
 !data/exports/full/checksums.json
+!data/exports/full/evaluation_report.json
+!data/exports/full/free_text_probe_report.json
+!data/exports/full/reproducibility_report.json
+!data/exports/full/pipeline_run_summary.json
 data/repro_runs/

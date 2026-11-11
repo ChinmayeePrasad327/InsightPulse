@@ -15,8 +15,8 @@
   },
   "resolution_action": "FLAGGED",
   "status": "OPEN",
-  "detected_at": "2026-11-11T18:03:08.693410+00:00",
-  "last_seen_at": "2026-11-11T18:03:27.925486+00:00"
+  "detected_at": "2026-11-11T19:16:29.006415+00:00",
+  "last_seen_at": "2026-11-11T19:16:40.196679+00:00"
  },
  {
   "issue_id": "DQ-000002",
@@ -34,8 +34,8 @@
   },
   "resolution_action": "FLAGGED",
   "status": "OPEN",
-  "detected_at": "2026-11-11T18:03:08.693410+00:00",
-  "last_seen_at": "2026-11-11T18:03:27.925486+00:00"
+  "detected_at": "2026-11-11T19:16:29.006415+00:00",
+  "last_seen_at": "2026-11-11T19:16:40.196679+00:00"
  },
  {
   "issue_id": "DQ-000003",
@@ -53,8 +53,8 @@
   },
   "resolution_action": "FLAGGED",
   "status": "OPEN",
-  "detected_at": "2026-11-11T18:03:08.693410+00:00",
-  "last_seen_at": "2026-11-11T18:03:27.925486+00:00"
+  "detected_at": "2026-11-11T19:16:29.006415+00:00",
+  "last_seen_at": "2026-11-11T19:16:40.196679+00:00"
  },
  {
   "issue_id": "DQ-000004",
@@ -72,8 +72,8 @@
   },
   "resolution_action": "FLAGGED",
   "status": "OPEN",
-  "detected_at": "2026-11-11T18:03:08.693410+00:00",
-  "last_seen_at": "2026-11-11T18:03:27.925486+00:00"
+  "detected_at": "2026-11-11T19:16:29.006415+00:00",
+  "last_seen_at": "2026-11-11T19:16:40.196679+00:00"
  },
  {
   "issue_id": "DQ-000005",
@@ -92,8 +92,8 @@
   },
   "resolution_action": "REJECTED",
   "status": "OPEN",
-  "detected_at": "2026-11-11T18:03:08.693410+00:00",
-  "last_seen_at": "2026-11-11T18:03:27.925486+00:00"
+  "detected_at": "2026-11-11T19:16:29.006415+00:00",
+  "last_seen_at": "2026-11-11T19:16:40.196679+00:00"
  },
  {
   "issue_id": "DQ-000006",
@@ -112,8 +112,8 @@
   },
   "resolution_action": "REJECTED",
   "status": "OPEN",
-  "detected_at": "2026-11-11T18:03:08.693410+00:00",
-  "last_seen_at": "2026-11-11T18:03:27.925486+00:00"
+  "detected_at": "2026-11-11T19:16:29.006415+00:00",
+  "last_seen_at": "2026-11-11T19:16:40.196679+00:00"
  },
  {
   "issue_id": "DQ-000007",
@@ -132,8 +132,8 @@
   },
   "resolution_action": "REJECTED",
   "status": "OPEN",
-  "detected_at": "2026-11-11T18:03:08.693410+00:00",
-  "last_seen_at": "2026-11-11T18:03:27.925486+00:00"
+  "detected_at": "2026-11-11T19:16:29.006415+00:00",
+  "last_seen_at": "2026-11-11T19:16:40.196679+00:00"
  },
  {
   "issue_id": "DQ-000008",
@@ -152,8 +152,8 @@
   },
   "resolution_action": "REJECTED",
   "status": "OPEN",
-  "detected_at": "2026-11-11T18:03:08.693410+00:00",
-  "last_seen_at": "2026-11-11T18:03:27.925486+00:00"
+  "detected_at": "2026-11-11T19:16:29.006415+00:00",
+  "last_seen_at": "2026-11-11T19:16:40.196679+00:00"
  },
  {
   "issue_id": "DQ-000009",
@@ -172,8 +172,8 @@
   },
   "resolution_action": "REJECTED",
   "status": "OPEN",
-  "detected_at": "2026-11-11T18:03:08.693410+00:00",
-  "last_seen_at": "2026-11-11T18:03:27.925486+00:00"
+  "detected_at": "2026-11-11T19:16:29.006415+00:00",
+  "last_seen_at": "2026-11-11T19:16:40.196679+00:00"
  },
  {
   "issue_id": "DQ-000010",
@@ -192,8 +192,8 @@
   },
   "resolution_action": "REJECTED",
   "status": "OPEN",
-  "detected_at": "2026-11-11T18:03:08.693410+00:00",
-  "last_seen_at": "2026-11-11T18:03:27.925486+00:00"
+  "detected_at": "2026-11-11T19:16:29.006415+00:00",
+  "last_seen_at": "2026-11-11T19:16:40.196679+00:00"
  },
  {
   "issue_id": "DQ-000011",
@@ -211,8 +211,8 @@
   },
   "resolution_action": "QUARANTINED",
   "status": "OPEN",
-  "detected_at": "2026-11-11T18:03:08.693410+00:00",
-  "last_seen_at": "2026-11-11T18:03:27.925486+00:00"
+  "detected_at": "2026-11-11T19:16:29.006415+00:00",
+  "last_seen_at": "2026-11-11T19:16:40.196679+00:00"
  },
  {
   "issue_id": "DQ-000012",
@@ -231,8 +231,8 @@
   },
   "resolution_action": "QUARANTINED",
   "status": "OPEN",
-  "detected_at": "2026-11-11T18:03:08.693410+00:00",
-  "last_seen_at": "2026-11-11T18:03:27.925486+00:00"
+  "detected_at": "2026-11-11T19:16:29.006415+00:00",
+  "last_seen_at": "2026-11-11T19:16:40.196679+00:00"
  },
  {
   "issue_id": "DQ-000013",
@@ -251,8 +251,8 @@
   },
   "resolution_action": "QUARANTINED",
   "status": "OPEN",
-  "detected_at": "2026-11-11T18:03:08.693410+00:00",
-  "last_seen_at": "2026-11-11T18:03:27.925486+00:00"
+  "detected_at": "2026-11-11T19:16:29.006415+00:00",
+  "last_seen_at": "2026-11-11T19:16:40.196679+00:00"
  },
  {
   "issue_id": "DQ-000014",
@@ -270,8 +270,8 @@
   },
   "resolution_action": "QUARANTINED",
   "status": "OPEN",
-  "detected_at": "2026-11-11T18:03:08.693410+00:00",
-  "last_seen_at": "2026-11-11T18:03:27.925486+00:00"
+  "detected_at": "2026-11-11T19:16:29.006415+00:00",
+  "last_seen_at": "2026-11-11T19:16:40.196679+00:00"
  },
  {
   "issue_id": "DQ-000015",
@@ -288,8 +288,8 @@
   },
   "resolution_action": "EXCLUDED_FROM_TRAINING",
   "status": "OPEN",
-  "detected_at": "2026-11-11T18:03:08.693410+00:00",
-  "last_seen_at": "2026-11-11T18:03:27.925486+00:00"
+  "detected_at": "2026-11-11T19:16:29.006415+00:00",
+  "last_seen_at": "2026-11-11T19:16:40.196679+00:00"
  },
  {
   "issue_id": "DQ-000016",
@@ -306,8 +306,8 @@
   },
   "resolution_action": "EXCLUDED_FROM_TRAINING",
   "status": "OPEN",
-  "detected_at": "2026-11-11T18:03:08.693410+00:00",
-  "last_seen_at": "2026-11-11T18:03:27.925486+00:00"
+  "detected_at": "2026-11-11T19:16:29.006415+00:00",
+  "last_seen_at": "2026-11-11T19:16:40.196679+00:00"
  },
  {
   "issue_id": "DQ-000017",
@@ -324,8 +324,8 @@
   },
   "resolution_action": "EXCLUDED_FROM_TRAINING",
   "status": "OPEN",
-  "detected_at": "2026-11-11T18:03:08.693410+00:00",
-  "last_seen_at": "2026-11-11T18:03:27.925486+00:00"
+  "detected_at": "2026-11-11T19:16:29.006415+00:00",
+  "last_seen_at": "2026-11-11T19:16:40.196679+00:00"
  },
  {
   "issue_id": "DQ-000018",
@@ -342,8 +342,8 @@
   },
   "resolution_action": "EXCLUDED_FROM_TRAINING",
   "status": "OPEN",
-  "detected_at": "2026-11-11T18:03:08.693410+00:00",
-  "last_seen_at": "2026-11-11T18:03:27.925486+00:00"
+  "detected_at": "2026-11-11T19:16:29.006415+00:00",
+  "last_seen_at": "2026-11-11T19:16:40.196679+00:00"
  },
  {
   "issue_id": "DQ-000019",
@@ -360,8 +360,8 @@
   },
   "resolution_action": "EXCLUDED_FROM_TRAINING",
   "status": "OPEN",
-  "detected_at": "2026-11-11T18:03:08.693410+00:00",
-  "last_seen_at": "2026-11-11T18:03:27.925486+00:00"
+  "detected_at": "2026-11-11T19:16:29.006415+00:00",
+  "last_seen_at": "2026-11-11T19:16:40.196679+00:00"
  },
  {
   "issue_id": "DQ-000020",
@@ -378,8 +378,8 @@
   },
   "resolution_action": "EXCLUDED_FROM_TRAINING",
   "status": "OPEN",
-  "detected_at": "2026-11-11T18:03:08.693410+00:00",
-  "last_seen_at": "2026-11-11T18:03:27.925486+00:00"
+  "detected_at": "2026-11-11T19:16:29.006415+00:00",
+  "last_seen_at": "2026-11-11T19:16:40.196679+00:00"
  },
  {
   "issue_id": "DQ-000021",
@@ -396,8 +396,8 @@
   },
   "resolution_action": "EXCLUDED_FROM_TRAINING",
   "status": "OPEN",
-  "detected_at": "2026-11-11T18:03:08.693410+00:00",
-  "last_seen_at": "2026-11-11T18:03:27.925486+00:00"
+  "detected_at": "2026-11-11T19:16:29.006415+00:00",
+  "last_seen_at": "2026-11-11T19:16:40.196679+00:00"
  },
  {
   "issue_id": "DQ-000022",
@@ -414,8 +414,8 @@
   },
   "resolution_action": "EXCLUDED_FROM_TRAINING",
   "status": "OPEN",
-  "detected_at": "2026-11-11T18:03:08.693410+00:00",
-  "last_seen_at": "2026-11-11T18:03:27.925486+00:00"
+  "detected_at": "2026-11-11T19:16:29.006415+00:00",
+  "last_seen_at": "2026-11-11T19:16:40.196679+00:00"
  },
  {
   "issue_id": "DQ-000023",
@@ -432,8 +432,8 @@
   },
   "resolution_action": "EXCLUDED_FROM_TRAINING",
   "status": "OPEN",
-  "detected_at": "2026-11-11T18:03:08.693410+00:00",
-  "last_seen_at": "2026-11-11T18:03:27.925486+00:00"
+  "detected_at": "2026-11-11T19:16:29.006415+00:00",
+  "last_seen_at": "2026-11-11T19:16:40.196679+00:00"
  },
  {
   "issue_id": "DQ-000024",
@@ -450,8 +450,8 @@
   },
   "resolution_action": "EXCLUDED_FROM_TRAINING",
   "status": "OPEN",
-  "detected_at": "2026-11-11T18:03:08.693410+00:00",
-  "last_seen_at": "2026-11-11T18:03:27.925486+00:00"
+  "detected_at": "2026-11-11T19:16:29.006415+00:00",
+  "last_seen_at": "2026-11-11T19:16:40.196679+00:00"
  },
  {
   "issue_id": "DQ-000025",
@@ -468,8 +468,8 @@
   },
   "resolution_action": "EXCLUDED_FROM_TRAINING",
   "status": "OPEN",
-  "detected_at": "2026-11-11T18:03:08.693410+00:00",
-  "last_seen_at": "2026-11-11T18:03:27.925486+00:00"
+  "detected_at": "2026-11-11T19:16:29.006415+00:00",
+  "last_seen_at": "2026-11-11T19:16:40.196679+00:00"
  },
  {
   "issue_id": "DQ-000026",
@@ -486,8 +486,8 @@
   },
   "resolution_action": "EXCLUDED_FROM_TRAINING",
   "status": "OPEN",
-  "detected_at": "2026-11-11T18:03:08.693410+00:00",
-  "last_seen_at": "2026-11-11T18:03:27.925486+00:00"
+  "detected_at": "2026-11-11T19:16:29.006415+00:00",
+  "last_seen_at": "2026-11-11T19:16:40.196679+00:00"
  },
  {
   "issue_id": "DQ-000027",
@@ -504,8 +504,8 @@
   },
   "resolution_action": "EXCLUDED_FROM_TRAINING",
   "status": "OPEN",
-  "detected_at": "2026-11-11T18:03:08.693410+00:00",
-  "last_seen_at": "2026-11-11T18:03:27.925486+00:00"
+  "detected_at": "2026-11-11T19:16:29.006415+00:00",
+  "last_seen_at": "2026-11-11T19:16:40.196679+00:00"
  },
  {
   "issue_id": "DQ-000028",
@@ -522,7 +522,7 @@
   },
   "resolution_action": "EXCLUDED_FROM_TRAINING",
   "status": "OPEN",
-  "detected_at": "2026-11-11T18:03:08.693410+00:00",
-  "last_seen_at": "2026-11-11T18:03:27.925486+00:00"
+  "detected_at": "2026-11-11T19:16:29.006415+00:00",
+  "last_seen_at": "2026-11-11T19:16:40.196679+00:00"
  }
 ]

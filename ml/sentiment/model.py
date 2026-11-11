@@ -24,27 +24,24 @@ class SentimentModel:
     model_version: str
     metadata: dict = field(default_factory=dict)
 
-    @staticmethod
-    def _make(c: float, seed: int) -> Pipeline:
-        return Pipeline([
-            ("features", build_text_features()),
-            ("clf", LogisticRegression(C=c, max_iter=3000, class_weight="balanced", random_state=seed)),
-        ])
-
     @classmethod
     def train(cls, x_train: list[str], y_train: list[str], x_val: list[str], y_val: list[str],
               version_hash: str, seed: int = 20261022) -> "SentimentModel":
         """Select C on the VALIDATION split (macro-F1); the model is fit on TRAIN only."""
+        # Features depend only on TRAIN text, so they are fitted once and reused for every C.
+        features = build_text_features().fit(x_train)
+        xt, xv = features.transform(x_train), features.transform(x_val)
         search = []
         best = None
         for c in C_GRID:
-            pipe = cls._make(c, seed).fit(x_train, y_train)
-            pred = pipe.predict(x_val)
+            clf = LogisticRegression(C=c, max_iter=3000, class_weight="balanced", random_state=seed).fit(xt, y_train)
+            pred = clf.predict(xv)
             score = f1_score(y_val, pred, average="macro")
             search.append({"C": c, "val_macro_f1": round(float(score), 4)})
             if best is None or score > best[0]:
-                best = (score, c, pipe, pred)
-        _, c, pipe, pred = best
+                best = (score, c, clf, pred)
+        _, c, clf, pred = best
+        pipe = Pipeline([("features", features), ("clf", clf)])
         meta = {
             "model_name": MODEL_NAME, "algorithm": "TfidfVectorizer(word 1-2, char_wb 2-5) + LogisticRegression",
             "hyperparameters": {"C": c, "class_weight": "balanced"}, "c_search": search,

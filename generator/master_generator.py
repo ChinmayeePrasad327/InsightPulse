@@ -111,6 +111,9 @@ def generate_surveys(cfg: ScaleConfig, seed: int, products: list[dict], channels
         if product and date.fromisoformat(product["launch_date"]) > start:
             start = date.fromisoformat(product["launch_date"])
             end = max(end, start + timedelta(days=60))
+        if product and product["discontinued_date"]:
+            # a product survey cannot run after the product is discontinued
+            end = min(end, date.fromisoformat(product["discontinued_date"]))
         chan = rng.choices(list(SURVEY_CHANNEL_WEIGHTS), weights=list(SURVEY_CHANNEL_WEIGHTS.values()))[0]
         title = {
             "CSAT": "Customer Satisfaction Pulse", "NPS": "Net Promoter Score Survey",

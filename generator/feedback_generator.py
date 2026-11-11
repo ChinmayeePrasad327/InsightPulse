@@ -16,6 +16,7 @@ from itertools import accumulate
 
 from app.core.taxonomy import THEME_BY_CODE
 from app.utils import id_generator as ids
+from app.utils.text_preprocessing import text_hash
 from generator import text_templates as T
 from generator.config import (
     ID_YEAR, NPS_RANGE, RATING_DIST, REVIEW_CHANNEL_WEIGHTS, SCENARIO_EVENTS, SENTIMENT_DIST,
@@ -326,6 +327,7 @@ def generate_reviews(cfg: ScaleConfig, seed: int, customers: list[dict], product
     chan_ids = {c["channel_code"]: c["channel_id"] for c in channels}
     dts = sorted(sampler.sample_dt() for _ in range(cfg.n_reviews))  # chronological ids
     seq, rows = ids.IdSequence("review", ID_YEAR), []
+    seen: set[tuple[str, str, str]] = set()
     for dt in dts:
         d = dt.date()
         customer, product = picker.customer(d), picker.product(d)
@@ -336,6 +338,14 @@ def generate_reviews(cfg: ScaleConfig, seed: int, customers: list[dict], product
             sentiment, themes = weighted(rng, SENTIMENT_DIST["REVIEW"]), choose_themes(rng, cfg, "REVIEW")
         variant = choose_variant(rng, cfg, customer)
         comp = composer.compose(sentiment, themes, variant, product)
+        for _ in range(20):  # baseline data has no accidental duplicates; those are injected deliberately
+            key = (customer["customer_id"], product["product_id"], text_hash(comp.text))
+            if key not in seen:
+                break
+            customer = picker.customer(d)
+            variant = choose_variant(rng, cfg, customer)
+            comp = composer.compose(sentiment, themes, variant, product)
+        seen.add(key)
         rating, explained = _maybe_explained_mismatch(rng, cfg, comp.sentiment, rating_for(rng, comp.sentiment))
         rows.append({
             "review_id": seq.next(), "customer_id": customer["customer_id"], "product_id": product["product_id"],
@@ -360,6 +370,7 @@ def generate_survey_responses(cfg: ScaleConfig, seed: int, customers: list[dict]
     product_by_id = {p["product_id"]: p for p in products}
     dts = sorted(sampler.sample_dt() for _ in range(cfg.n_survey_responses))
     rows = []
+    seen: set[tuple[str, str, str]] = set()
     for dt in dts:
         d = dt.date()
         open_surveys = [s for s, a, b in windows if a <= d <= b and child.count(s["survey_id"]) < capacity]
@@ -380,6 +391,14 @@ def generate_survey_responses(cfg: ScaleConfig, seed: int, customers: list[dict]
             themes = choose_themes(rng, cfg, "SURVEY_RESPONSE", primary)
         variant = choose_variant(rng, cfg, customer)
         comp = composer.compose(sentiment, themes, variant, product)
+        for _ in range(20):  # no accidental duplicates in the baseline; duplicates are injected deliberately
+            key = (survey["survey_id"], customer["customer_id"], text_hash(comp.text))
+            if key not in seen:
+                break
+            customer = picker.customer(d)
+            variant = choose_variant(rng, cfg, customer)
+            comp = composer.compose(sentiment, themes, variant, product)
+        seen.add(key)
         rating, explained = _maybe_explained_mismatch(rng, cfg, comp.sentiment, rating_for(rng, comp.sentiment))
         nps = ""
         if survey["survey_type"] == "NPS":
