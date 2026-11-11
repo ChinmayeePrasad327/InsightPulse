@@ -1,0 +1,5 @@
+{
+  "model_version": "1.0.0+0e039416c0",
+  "file": "1.0.0_0e039416c0.joblib",
+  "model_name": "tfidf-logreg-sentiment"
+}

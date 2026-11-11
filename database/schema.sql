@@ -336,9 +336,9 @@ CREATE TABLE action_items (
     CHECK (due_date >= created_at::date),
     CHECK (window_end IS NULL OR window_start IS NULL OR window_end >= window_start)
 );
--- No duplicate *active* action for the same issue (rule + theme) and product.
+-- No duplicate *active* action for the same issue (theme) and product ('ALL' = cross-product).
 CREATE UNIQUE INDEX ux_action_active_issue
-    ON action_items (COALESCE(product_id, 'ALL'), theme_id, rule_code)
+    ON action_items (COALESCE(product_id, 'ALL'), theme_id)
     WHERE status IN ('OPEN','IN_PROGRESS','BLOCKED');
 CREATE INDEX ix_actions_status ON action_items (status, priority);
 
