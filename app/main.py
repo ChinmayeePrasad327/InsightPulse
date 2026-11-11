@@ -10,7 +10,7 @@ from fastapi import FastAPI, Request
 from fastapi.responses import JSONResponse
 from sqlalchemy.exc import IntegrityError, OperationalError
 
-from app.api.routes import health
+from app.api.routes import actions, analytics, evaluation, feedback, health, pipeline, validation
 from app.core.config import get_settings
 from app.core.logging_config import configure_logging, get_logger
 
@@ -40,4 +40,5 @@ async def operational_error_handler(_: Request, exc: OperationalError) -> JSONRe
     return JSONResponse(status_code=503, content={"detail": "Database unavailable"})
 
 
-app.include_router(health.router)
+for r in (health, feedback, analytics, actions, validation, pipeline, evaluation):
+    app.include_router(r.router)

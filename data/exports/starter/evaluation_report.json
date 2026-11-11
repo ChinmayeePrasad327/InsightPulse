@@ -1,0 +1,611 @@
+{
+  "generated_at": "2026-11-11T17:47:11+00:00",
+  "scale": "starter",
+  "evaluated_run": {
+    "run_id": "RUN-000001",
+    "sentiment_model_version": "1.0.0+0e039416c0",
+    "theme_model_version": "1.0.0+649c220ff9"
+  },
+  "ground_truth": {
+    "evaluation_records": 167,
+    "reviewer": "HUMAN-REVIEW-PANEL-A (synthetic)",
+    "split": "TEST (never used for training or tuning)"
+  },
+  "sentiment": {
+    "n": 167,
+    "accuracy": 0.9641,
+    "macro_precision": 0.9655,
+    "macro_recall": 0.9427,
+    "macro_f1": 0.9527,
+    "evaluation_records": 167,
+    "scored_records": 167,
+    "coverage": 1.0,
+    "unscored_reasons": {},
+    "labels": [
+      "POSITIVE",
+      "NEGATIVE",
+      "NEUTRAL",
+      "MIXED"
+    ],
+    "confusion_matrix": [
+      [
+        53,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        58,
+        0,
+        1
+      ],
+      [
+        0,
+        1,
+        32,
+        0
+      ],
+      [
+        2,
+        2,
+        0,
+        18
+      ]
+    ],
+    "classification_report": {
+      "POSITIVE": {
+        "precision": 0.9636363636363636,
+        "recall": 1.0,
+        "f1-score": 0.9814814814814815,
+        "support": 53.0
+      },
+      "NEGATIVE": {
+        "precision": 0.9508196721311475,
+        "recall": 0.9830508474576272,
+        "f1-score": 0.9666666666666667,
+        "support": 59.0
+      },
+      "NEUTRAL": {
+        "precision": 1.0,
+        "recall": 0.9696969696969697,
+        "f1-score": 0.9846153846153847,
+        "support": 33.0
+      },
+      "MIXED": {
+        "precision": 0.9473684210526315,
+        "recall": 0.8181818181818182,
+        "f1-score": 0.8780487804878049,
+        "support": 22.0
+      },
+      "accuracy": 0.9640718562874252,
+      "macro avg": {
+        "precision": 0.9654561142050356,
+        "recall": 0.9427324088341038,
+        "f1-score": 0.9527030783128344,
+        "support": 167.0
+      },
+      "weighted avg": {
+        "precision": 0.9641508574348674,
+        "recall": 0.9640718562874252,
+        "f1-score": 0.9632409144604265,
+        "support": 167.0
+      }
+    },
+    "weighted_f1": 0.9632,
+    "slices": {
+      "language": {
+        "en": {
+          "n": 132,
+          "accuracy": 0.9848,
+          "macro_precision": 0.9766,
+          "macro_recall": 0.9766,
+          "macro_f1": 0.9766
+        },
+        "hi": {
+          "n": 27,
+          "accuracy": 0.8889,
+          "macro_precision": 0.9292,
+          "macro_recall": 0.875,
+          "macro_f1": 0.878
+        },
+        "te": {
+          "n": 8,
+          "accuracy": 0.875,
+          "macro_precision": 0.9375,
+          "macro_recall": 0.875,
+          "macro_f1": 0.881
+        }
+      },
+      "language_variant": {
+        "en": {
+          "n": 132,
+          "accuracy": 0.9848,
+          "macro_precision": 0.9766,
+          "macro_recall": 0.9766,
+          "macro_f1": 0.9766
+        },
+        "hi": {
+          "n": 19,
+          "accuracy": 0.8421,
+          "macro_precision": 0.9062,
+          "macro_recall": 0.8125,
+          "macro_f1": 0.7976
+        },
+        "hi_rom": {
+          "n": 8,
+          "accuracy": 1.0,
+          "macro_precision": 0.75,
+          "macro_recall": 0.75,
+          "macro_f1": 0.75
+        },
+        "te": {
+          "n": 4,
+          "accuracy": 0.75,
+          "macro_precision": 0.625,
+          "macro_recall": 0.75,
+          "macro_f1": 0.6667
+        },
+        "te_rom": {
+          "n": 4,
+          "accuracy": 1.0,
+          "macro_precision": 0.75,
+          "macro_recall": 0.75,
+          "macro_f1": 0.75
+        }
+      },
+      "source_type": {
+        "REVIEW": {
+          "n": 75,
+          "accuracy": 0.9867,
+          "macro_precision": 0.9773,
+          "macro_recall": 0.99,
+          "macro_f1": 0.983
+        },
+        "SUPPORT_MESSAGE": {
+          "n": 18,
+          "accuracy": 0.9444,
+          "macro_precision": 0.975,
+          "macro_recall": 0.875,
+          "macro_f1": 0.9035
+        },
+        "SURVEY_RESPONSE": {
+          "n": 74,
+          "accuracy": 0.9459,
+          "macro_precision": 0.9606,
+          "macro_recall": 0.9103,
+          "macro_f1": 0.9278
+        }
+      },
+      "writing_style": {
+        "casual": {
+          "n": 16,
+          "accuracy": 0.9375,
+          "macro_precision": 0.9167,
+          "macro_recall": 0.9583,
+          "macro_f1": 0.9273
+        },
+        "emoji": {
+          "n": 10,
+          "accuracy": 1.0,
+          "macro_precision": 0.75,
+          "macro_recall": 0.75,
+          "macro_f1": 0.75
+        },
+        "emphatic": {
+          "n": 8,
+          "accuracy": 1.0,
+          "macro_precision": 1.0,
+          "macro_recall": 1.0,
+          "macro_f1": 1.0
+        },
+        "formal": {
+          "n": 15,
+          "accuracy": 0.9333,
+          "macro_precision": 0.9643,
+          "macro_recall": 0.875,
+          "macro_f1": 0.8974
+        },
+        "standard": {
+          "n": 95,
+          "accuracy": 0.9579,
+          "macro_precision": 0.9665,
+          "macro_recall": 0.9434,
+          "macro_f1": 0.952
+        },
+        "terse": {
+          "n": 14,
+          "accuracy": 1.0,
+          "macro_precision": 0.75,
+          "macro_recall": 0.75,
+          "macro_f1": 0.75
+        },
+        "typo": {
+          "n": 9,
+          "accuracy": 1.0,
+          "macro_precision": 0.75,
+          "macro_recall": 0.75,
+          "macro_f1": 0.75
+        }
+      },
+      "is_sarcasm": {
+        "true": {
+          "n": 3,
+          "accuracy": 1.0,
+          "macro_precision": 0.5,
+          "macro_recall": 0.5,
+          "macro_f1": 0.5
+        },
+        "false": {
+          "n": 164,
+          "accuracy": 0.9634,
+          "macro_precision": 0.9643,
+          "macro_recall": 0.9404,
+          "macro_f1": 0.9509
+        }
+      },
+      "is_ambiguous": {
+        "true": {
+          "n": 7,
+          "accuracy": 1.0,
+          "macro_precision": 0.25,
+          "macro_recall": 0.25,
+          "macro_f1": 0.25
+        },
+        "false": {
+          "n": 160,
+          "accuracy": 0.9625,
+          "macro_precision": 0.9655,
+          "macro_recall": 0.9407,
+          "macro_f1": 0.9516
+        }
+      },
+      "needs_human_review": {
+        "true": {
+          "n": 17,
+          "accuracy": 0.7059,
+          "macro_precision": 0.7,
+          "macro_recall": 0.7804,
+          "macro_f1": 0.6878
+        },
+        "false": {
+          "n": 150,
+          "accuracy": 0.9933,
+          "macro_precision": 0.9955,
+          "macro_recall": 0.9833,
+          "macro_f1": 0.9891
+        }
+      }
+    },
+    "baselines": {
+      "majority_class": {
+        "label": "NEGATIVE",
+        "n": 167,
+        "accuracy": 0.3533,
+        "macro_precision": 0.0883,
+        "macro_recall": 0.25,
+        "macro_f1": 0.1305
+      },
+      "lexicon_only": {
+        "n": 167,
+        "accuracy": 0.8683,
+        "macro_precision": 0.8468,
+        "macro_recall": 0.8482,
+        "macro_f1": 0.8465
+      }
+    }
+  },
+  "themes": {
+    "n": 167,
+    "micro_precision": 0.9502,
+    "micro_recall": 0.8911,
+    "micro_f1": 0.9197,
+    "macro_precision": 0.9474,
+    "macro_recall": 0.8825,
+    "macro_f1": 0.9088,
+    "subset_accuracy": 0.8263,
+    "hamming_loss": 0.024,
+    "per_theme": [
+      {
+        "theme_id": "THEME-000001",
+        "theme_name": "Product Quality",
+        "precision": 1.0,
+        "recall": 0.9123,
+        "f1": 0.9541,
+        "support": 57
+      },
+      {
+        "theme_id": "THEME-000002",
+        "theme_name": "Pricing",
+        "precision": 1.0,
+        "recall": 0.8286,
+        "f1": 0.9062,
+        "support": 35
+      },
+      {
+        "theme_id": "THEME-000003",
+        "theme_name": "Delivery",
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0,
+        "support": 35
+      },
+      {
+        "theme_id": "THEME-000004",
+        "theme_name": "Customer Support",
+        "precision": 1.0,
+        "recall": 0.88,
+        "f1": 0.9362,
+        "support": 25
+      },
+      {
+        "theme_id": "THEME-000005",
+        "theme_name": "User Experience",
+        "precision": 0.9375,
+        "recall": 0.8333,
+        "f1": 0.8824,
+        "support": 18
+      },
+      {
+        "theme_id": "THEME-000006",
+        "theme_name": "Payment",
+        "precision": 0.6538,
+        "recall": 0.9444,
+        "f1": 0.7727,
+        "support": 18
+      },
+      {
+        "theme_id": "THEME-000007",
+        "theme_name": "Product Availability",
+        "precision": 1.0,
+        "recall": 0.8182,
+        "f1": 0.9,
+        "support": 22
+      },
+      {
+        "theme_id": "THEME-000008",
+        "theme_name": "Packaging",
+        "precision": 0.8824,
+        "recall": 0.8333,
+        "f1": 0.8571,
+        "support": 18
+      },
+      {
+        "theme_id": "THEME-000009",
+        "theme_name": "Refunds and Returns",
+        "precision": 1.0,
+        "recall": 0.8333,
+        "f1": 0.9091,
+        "support": 12
+      },
+      {
+        "theme_id": "THEME-000010",
+        "theme_name": "Technical Issues",
+        "precision": 1.0,
+        "recall": 0.9412,
+        "f1": 0.9697,
+        "support": 17
+      }
+    ],
+    "records_without_true_theme": 7,
+    "language_slices": {
+      "en": {
+        "n": 132,
+        "micro_f1": 0.9637
+      },
+      "hi": {
+        "n": 27,
+        "micro_f1": 0.7952
+      },
+      "te": {
+        "n": 8,
+        "micro_f1": 0.6897
+      }
+    }
+  },
+  "data_quality": {
+    "issues": 27,
+    "primary_key_violations": 0,
+    "foreign_key_violations": 0,
+    "duplicates": 4,
+    "invalid_taxonomy": 6,
+    "privacy_violations": 4,
+    "label_contradictions": 9,
+    "target_leakage": 4,
+    "feedback_items_with_issues": 27,
+    "validation_pass_rate": 0.975893,
+    "checks_passed": 12,
+    "checks_total": 17,
+    "issues_by_rule": {
+      "PK_UNIQUENESS": 0,
+      "FK_INTEGRITY": 0,
+      "ID_FORMAT": 0,
+      "ENUM_VALUE": 0,
+      "REQUIRED_FIELD": 0,
+      "INVALID_DATE": 0,
+      "RATING_BOUNDS": 0,
+      "DATE_ORDER": 0,
+      "DUPLICATE_RESPONSE": 4,
+      "DUPLICATE_FEEDBACK": 0,
+      "LIFECYCLE_TRANSITION": 0,
+      "ARITHMETIC_RECONCILIATION": 0,
+      "SOURCE_CONSISTENCY": 0,
+      "THEME_TAXONOMY": 6,
+      "PRIVACY_LEAK": 4,
+      "LABEL_CONTRADICTION": 9,
+      "TARGET_LEAKAGE": 4
+    },
+    "injected_anomaly_detection": {
+      "DUPLICATE_RESPONSE": {
+        "injected": 4,
+        "detected": 4,
+        "missed_record_ids": [],
+        "recall": 1.0
+      },
+      "PRIVACY_LEAK": {
+        "injected": 4,
+        "detected": 4,
+        "missed_record_ids": [],
+        "recall": 1.0
+      },
+      "LABEL_CONTRADICTION": {
+        "injected": 9,
+        "detected": 9,
+        "missed_record_ids": [],
+        "recall": 1.0
+      },
+      "INVALID_THEME": {
+        "injected": 6,
+        "detected": 6,
+        "missed_record_ids": [],
+        "recall": 1.0
+      },
+      "TARGET_LEAKAGE": {
+        "injected": 4,
+        "detected": 4,
+        "missed_record_ids": [],
+        "recall": 1.0
+      }
+    },
+    "injected_total": 27,
+    "injected_detected": 27,
+    "detection_recall": 1.0,
+    "detection_precision": 1.0,
+    "unexplained_issues": 0,
+    "unexplained_by_rule": {},
+    "unexplained_examples": []
+  },
+  "business_intelligence": {
+    "recurring_negative_themes_detected": 10,
+    "sentiment_shift_alerts": 5,
+    "alerts_overlapping_known_scenarios": 4,
+    "alert_precision_vs_scenarios": 0.8,
+    "scenario_events": [
+      {
+        "event_code": "PAYMENT_GATEWAY_OUTAGE",
+        "theme": "PAYMENT",
+        "window": [
+          "2026-04-13",
+          "2026-04-26"
+        ],
+        "scope": "all products",
+        "detected_by_theme_alert": false,
+        "detected_by_any_alert": true,
+        "alert_weeks": [],
+        "related_actions": []
+      },
+      {
+        "event_code": "EARBUDS_BATTERY_DEFECT",
+        "theme": "PRODUCT_QUALITY",
+        "window": [
+          "2026-06-15",
+          "2026-10-31"
+        ],
+        "scope": "product/category",
+        "detected_by_theme_alert": false,
+        "detected_by_any_alert": true,
+        "alert_weeks": [],
+        "related_actions": [
+          "ACT-2026-000001"
+        ]
+      },
+      {
+        "event_code": "GROCERY_PRICE_HIKE",
+        "theme": "PRICING",
+        "window": [
+          "2026-07-01",
+          "2026-07-31"
+        ],
+        "scope": "product/category",
+        "detected_by_theme_alert": false,
+        "detected_by_any_alert": false,
+        "alert_weeks": [],
+        "related_actions": []
+      },
+      {
+        "event_code": "COURIER_DISRUPTION",
+        "theme": "DELIVERY",
+        "window": [
+          "2026-08-03",
+          "2026-08-30"
+        ],
+        "scope": "all products",
+        "detected_by_theme_alert": true,
+        "detected_by_any_alert": true,
+        "alert_weeks": [
+          "2026-08-03"
+        ],
+        "related_actions": [
+          "ACT-2026-000003",
+          "ACT-2026-000004",
+          "ACT-2026-000005",
+          "ACT-2026-000006"
+        ]
+      },
+      {
+        "event_code": "APP_RELEASE_REGRESSION",
+        "theme": "TECHNICAL_ISSUES",
+        "window": [
+          "2026-09-08",
+          "2026-09-27"
+        ],
+        "scope": "all products",
+        "detected_by_theme_alert": true,
+        "detected_by_any_alert": true,
+        "alert_weeks": [
+          "2026-09-07"
+        ],
+        "related_actions": [
+          "ACT-2026-000007"
+        ]
+      }
+    ],
+    "scenario_recall_theme_alerts": 0.4,
+    "scenario_recall_with_actions": 0.6,
+    "actions_generated": 7,
+    "actions_by_rule": {
+      "NEGATIVE_THEME_CONCENTRATION": 5,
+      "SENTIMENT_SHIFT": 2
+    },
+    "actions_by_priority": {
+      "CRITICAL": 2,
+      "HIGH": 5
+    },
+    "evidence_traceability": {
+      "actions_with_complete_evidence": 7,
+      "actions_total": 7,
+      "traceability_rate": 1.0,
+      "evidence_links": 70,
+      "evidence_analysable_rate": 1.0,
+      "evidence_negative_rate": 1.0,
+      "evidence_theme_match_rate": 1.0
+    }
+  },
+  "reproducibility": {
+    "manifest": {
+      "generator_version": "1.0.0",
+      "seed": 20261022,
+      "scale": "starter",
+      "command": "python -m generator.generate_data --scale starter --seed 20261022",
+      "row_counts": {
+        "master/channels": 8,
+        "master/products": 20,
+        "master/customers": 300,
+        "master/surveys": 10,
+        "master/themes": 10,
+        "master/sentiment_labels": 4,
+        "raw/reviews": 500,
+        "raw/survey_responses": 504,
+        "raw/support_tickets": 78,
+        "raw/support_messages": 200,
+        "raw/ticket_status_events": 233,
+        "raw/annotations": 953,
+        "raw/dataset_splits": 1120,
+        "ground_truth/ground_truth": 27,
+        "ground_truth/evaluation_set": 167,
+        "ground_truth/scenario_events": 5
+      },
+      "files": 32
+    }
+  }
+}

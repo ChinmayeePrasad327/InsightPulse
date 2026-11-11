@@ -327,6 +327,7 @@ CREATE TABLE action_items (
     status              VARCHAR(12)   NOT NULL
                         CHECK (status IN ('OPEN','IN_PROGRESS','BLOCKED','RESOLVED','CLOSED','DISMISSED')),
     origin              VARCHAR(8)    NOT NULL CHECK (origin IN ('RULE','MANUAL')),
+    duplicate_reason    TEXT,          -- documented reason to allow a 2nd active action for the same issue
     run_id              VARCHAR(10)   REFERENCES pipeline_runs (run_id),
     window_start        DATE,
     window_end          DATE,
@@ -339,7 +340,7 @@ CREATE TABLE action_items (
 -- No duplicate *active* action for the same issue (theme) and product ('ALL' = cross-product).
 CREATE UNIQUE INDEX ux_action_active_issue
     ON action_items (COALESCE(product_id, 'ALL'), theme_id)
-    WHERE status IN ('OPEN','IN_PROGRESS','BLOCKED');
+    WHERE status IN ('OPEN','IN_PROGRESS','BLOCKED') AND duplicate_reason IS NULL;
 CREATE INDEX ix_actions_status ON action_items (status, priority);
 
 CREATE TABLE action_evidence (
@@ -409,7 +410,7 @@ CREATE INDEX ix_sce_entity ON state_change_events (entity_type, entity_id, chang
 CREATE VIEW v_current_sentiment AS
 SELECT DISTINCT ON (sp.feedback_id) sp.*
 FROM sentiment_predictions sp
-JOIN pipeline_runs pr ON pr.run_id = sp.run_id AND pr.status = 'SUCCEEDED'
+JOIN pipeline_runs pr ON pr.run_id = sp.run_id AND pr.status <> 'FAILED'  -- predictions of failed runs are ignored
 ORDER BY sp.feedback_id, sp.run_id DESC;
 
 CREATE VIEW v_current_themes AS

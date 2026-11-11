@@ -29,6 +29,7 @@ class ActionItem(Base):
     owner: Mapped[str] = mapped_column(String(80))
     status: Mapped[str] = mapped_column(String(12))
     origin: Mapped[str] = mapped_column(String(8))
+    duplicate_reason: Mapped[str | None] = mapped_column(Text)
     run_id: Mapped[str | None] = mapped_column(ForeignKey("pipeline_runs.run_id"))
     window_start: Mapped[date | None] = mapped_column(Date)
     window_end: Mapped[date | None] = mapped_column(Date)
