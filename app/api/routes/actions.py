@@ -103,12 +103,10 @@ def create_action(req: ActionCreate, db: Session = Depends(get_db)) -> ActionDet
                  "priority": req.priority, "title": req.title, "description": req.description,
                  "recommended_action": req.recommended_action, "owner": req.owner,
                  "due_date": req.due_date or today + timedelta(days=30), "evidence": fids,
-                 "metrics": {"created_by": req.created_by}}
+                 "metrics": {"created_by": req.created_by},
+                 "duplicate_reason": req.duplicate_reason if dup else None}
     try:
         action_id = acts.create_action(conn, candidate, "MANUAL", None, req.created_by)
-        if req.duplicate_reason:
-            db.execute(text("UPDATE action_items SET duplicate_reason = :r WHERE action_id = :a"),
-                       {"r": req.duplicate_reason, "a": action_id})
         db.commit()
     except Exception:
         db.rollback()

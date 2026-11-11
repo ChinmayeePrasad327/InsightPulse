@@ -12,7 +12,7 @@ def configure_logging(level: str = "INFO") -> None:
     global _CONFIGURED
     if _CONFIGURED:
         return
-    handler = logging.StreamHandler(sys.stdout)
+    handler = logging.StreamHandler(sys.stderr)
     handler.setFormatter(
         logging.Formatter("%(asctime)s | %(levelname)-7s | %(name)s | %(message)s")
     )

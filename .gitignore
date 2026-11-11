@@ -8,8 +8,9 @@ __pycache__/
 *.egg-info/
 .DS_Store
 logs/
-# Trained model binaries are reproducible from the pipeline; metadata JSON is kept.
-ml/saved_models/**/*.joblib
+# Trained models are reproducible from the pipeline (python -m scripts.run_pipeline);
+# metrics are recorded in data/exports/<scale>/evaluation_report.json and docs/evaluation.md.
+ml/saved_models/*/
 # Full-scale uncompressed generated data is reproducible; compressed bundle is committed.
 data/raw/full/
 data/master/full/

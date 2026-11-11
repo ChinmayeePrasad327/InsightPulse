@@ -1,9 +1,9 @@
 {
-  "run_id": "RUN-000001",
-  "generated_at": "2026-11-11T17:46:58+00:00",
+  "run_id": "RUN-000002",
+  "generated_at": "2026-11-11T18:03:27+00:00",
   "record_counts": {
     "feedback_items": 1120,
-    "annotations": 953,
+    "annotations": 955,
     "survey_responses": 504,
     "reviews": 500,
     "support_tickets": 78,
@@ -11,16 +11,16 @@
     "customers": 300,
     "products": 20,
     "surveys": 10,
-    "action_items": 0
+    "action_items": 7
   },
   "feedback_status": {
+    "PROCESSED": 1112,
     "QUARANTINED": 4,
-    "DUPLICATE": 4,
-    "VALIDATED": 1112
+    "DUPLICATE": 4
   },
   "annotation_training_status": {
-    "EXCLUDED": 17,
-    "ELIGIBLE": 936
+    "EXCLUDED": 18,
+    "ELIGIBLE": 937
   },
   "checks": {
     "PK_UNIQUENESS": {
@@ -136,11 +136,11 @@
     },
     "LABEL_CONTRADICTION": {
       "description": "Annotation label contradicts the text/rating without explanation",
-      "issues": 9,
+      "issues": 10,
       "default_resolution": "EXCLUDED_FROM_TRAINING",
       "status": "FAIL",
       "by_severity": {
-        "HIGH": 9
+        "HIGH": 10
       }
     },
     "TARGET_LEAKAGE": {
@@ -154,16 +154,16 @@
     }
   },
   "totals": {
-    "issues": 27,
+    "issues": 28,
     "primary_key_violations": 0,
     "foreign_key_violations": 0,
     "duplicates": 4,
     "invalid_taxonomy": 6,
     "privacy_violations": 4,
-    "label_contradictions": 9,
+    "label_contradictions": 10,
     "target_leakage": 4,
-    "feedback_items_with_issues": 27,
-    "validation_pass_rate": 0.975893,
+    "feedback_items_with_issues": 28,
+    "validation_pass_rate": 0.975,
     "checks_passed": 12,
     "checks_total": 17
   },
@@ -180,7 +180,7 @@
       "severity": "HIGH",
       "entity_type": "FEEDBACK_ANNOTATION",
       "resolution_action": "EXCLUDED_FROM_TRAINING",
-      "n": 9
+      "n": 10
     },
     {
       "rule_code": "PRIVACY_LEAK",

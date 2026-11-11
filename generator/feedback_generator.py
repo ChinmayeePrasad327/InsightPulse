@@ -66,6 +66,9 @@ def _decap(clause: str) -> str:
     return clause[0].lower() + clause[1:]
 
 
+OVERALL_RATE = 0.3  # share of single-polarity English texts with a theme-free overall opinion
+
+
 class TextComposer:
     """Assembles feedback text from tagged clauses in English, Hindi or Telugu."""
 
@@ -130,6 +133,9 @@ class TextComposer:
         for prev, pol, clause in zip(pols, pols[1:], clauses[1:]):
             conn = r.choice(T.CONNECTORS_EN["contrast" if prev != pol else "same"])
             text += conn + (clause if conn == ". " else _decap(clause))
+        if sentiment in ("POSITIVE", "NEGATIVE") and not sarcasm and r.random() < OVERALL_RATE:
+            overall = self._fill(r.choice(T.OVERALL_EN[pols[0]]), product)
+            text = f"{overall}. {text}" if r.random() < 0.5 else f"{text.rstrip('.')}. {overall}"
         style = r.choices(self.STYLES, weights=self.STYLE_WEIGHTS)[0]
         if sarcasm and style == "typo":
             style = "standard"

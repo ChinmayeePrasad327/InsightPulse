@@ -326,6 +326,21 @@ AMBIGUOUS_EN: list[str] = [
     "Nothing much to say",
 ]
 
+# Theme-free overall opinions. They carry polarity only, so they never add a theme
+# label; without them "love"/"perfect" would appear almost only in sarcastic clauses.
+OVERALL_EN: dict[str, list[str]] = {
+    "pos": [
+        "Absolutely love this {product}", "I love it", "Really happy with this purchase",
+        "It works perfectly", "Best purchase I have made this year", "Exactly what I wanted",
+        "Highly recommend the {product}", "Totally satisfied", "Amazing experience overall",
+        "Love the {product}, no regrets",
+    ],
+    "neg": [
+        "I regret buying the {product}", "Worst purchase I have made this year", "Completely useless",
+        "Hate the {product}, do not buy", "Total waste of money", "Not happy with this purchase at all",
+        "Awful experience overall", "I would not recommend the {product} to anyone",
+    ],
+}
 OPENERS_EN: list[str] = ["", "", "", "Honestly, ", "Overall, ", "To be fair, ", "Well, ", "So ", "Update: "]
 CLOSERS_EN: dict[str, list[str]] = {
     "POSITIVE": ["", "", "Would recommend.", "Very happy.", "Keep it up!", "Five stars from me."],

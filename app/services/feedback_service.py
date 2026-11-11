@@ -188,6 +188,12 @@ def create_feedback(db: Session, req, triggered_by: str = "api") -> str:
     db.execute(text("SELECT pg_advisory_xact_lock(hashtext(:k))"), {"k": f"id:{lock_key}"})
 
     if req.source_type == "REVIEW":
+        dup = db.execute(text("""SELECT review_id FROM reviews WHERE customer_id = :c AND product_id = :p
+                                   AND lower(regexp_replace(btrim(review_text), '\\s+', ' ', 'g')) = lower(:x)
+                                 ORDER BY review_id LIMIT 1"""),
+                         {"c": req.customer_id, "p": product_id, "x": body}).scalar()
+        if dup:
+            raise FeedbackConflictError(f"Customer already submitted this review text for {product_id} ({dup})")
         n = db.execute(text("SELECT COALESCE(max(substring(review_id from 10)::int), 0) FROM reviews")).scalar_one()
         sid = ids.review_id(n + 1)
         db.execute(text("""INSERT INTO reviews (review_id, customer_id, product_id, channel_id, rating, review_title,

@@ -198,9 +198,10 @@ def create_action(conn: Connection, c: dict, origin: str, run_id: str | None, ch
     conn.execute(text("""
         INSERT INTO action_items (action_id, title, description, product_id, theme_id, rule_code, priority,
             evidence_count, negative_count, total_count, negative_share, metrics, recommended_action, owner, status,
-            origin, run_id, window_start, window_end, due_date)
+            origin, run_id, window_start, window_end, due_date, duplicate_reason)
         VALUES (:id, :title, :desc, :pid, :tid, :rule, :prio, 0, :neg, :tot, :share, CAST(:metrics AS jsonb),
-                :rec, :owner, 'OPEN', :origin, :run, :ws, :we, :due)"""), {
+                :rec, :owner, 'OPEN', :origin, :run, :ws, :we, :due, :dup_reason)"""), {
+        "dup_reason": c.get("duplicate_reason"),
         "id": action_id, "title": c["title"][:200], "desc": c["description"], "pid": c.get("product_id"),
         "tid": c["theme_id"], "rule": c["rule_code"], "prio": c["priority"], "neg": c.get("negative_count", 0),
         "tot": c.get("total_count", 0), "share": c.get("negative_share"),

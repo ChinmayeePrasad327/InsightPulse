@@ -156,6 +156,10 @@ def evaluate_data_quality(engine: Engine, gt: GroundTruth) -> dict:
     with engine.connect() as conn:
         issues = [dict(r) for r in conn.execute(text(
             "SELECT rule_code, record_id, entity_type, severity, resolution_action FROM data_quality_issues")).mappings()]
+        # Records submitted through the API after ingestion are not part of the generated dataset, so the
+        # ground truth cannot explain them; their issues are reported separately, not as "unexplained".
+        live = {r[0] for r in conn.execute(text(
+            "SELECT source_record_id FROM feedback_items WHERE dataset_split = 'UNASSIGNED'"))}
     norm = lambda rid: rid[3:] if rid.startswith("FB-") else rid  # noqa: E731
     detected = {(i["rule_code"], norm(i["record_id"])) for i in issues}
     by_type: dict[str, dict] = {}
@@ -171,7 +175,9 @@ def evaluate_data_quality(engine: Engine, gt: GroundTruth) -> dict:
             d["missed_record_ids"].append(a["record_id"])
     for d in by_type.values():
         d["recall"] = round(d["detected"] / d["injected"], 4) if d["injected"] else None
-    unexplained = [i for i in issues if (i["rule_code"], norm(i["record_id"])) not in matched]
+    live_issues = [i for i in issues if norm(i["record_id"]) in live]
+    unexplained = [i for i in issues if (i["rule_code"], norm(i["record_id"])) not in matched
+                   and norm(i["record_id"]) not in live]
     injected_total = sum(d["injected"] for d in by_type.values())
     return {
         **summary["totals"],
@@ -179,7 +185,10 @@ def evaluate_data_quality(engine: Engine, gt: GroundTruth) -> dict:
         "injected_anomaly_detection": by_type,
         "injected_total": injected_total, "injected_detected": len(matched),
         "detection_recall": round(len(matched) / injected_total, 4) if injected_total else None,
-        "detection_precision": round(len(matched) / len(issues), 4) if issues else None,
+        "detection_precision": (round(len(matched) / (len(issues) - len(live_issues)), 4)
+                                if len(issues) > len(live_issues) else None),
+        "live_submission_issues": len(live_issues),
+        "live_submission_issues_by_rule": _count([i["rule_code"] for i in live_issues]),
         "unexplained_issues": len(unexplained),
         "unexplained_by_rule": _count([i["rule_code"] for i in unexplained]),
         "unexplained_examples": unexplained[:20],
