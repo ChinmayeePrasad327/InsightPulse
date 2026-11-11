@@ -36,7 +36,7 @@ from generator.anomaly_injector import AnomalyInjector
 from generator.config import DEFAULT_SEED, GENERATOR_VERSION, ID_YEAR, SCALES, SCENARIO_EVENTS, ScaleConfig
 from generator.feedback_generator import generate_reviews, generate_support, generate_survey_responses
 from generator.master_generator import (
-    generate_channels, generate_customers, generate_products, generate_reference, generate_surveys, rng_for,
+    IST, generate_channels, generate_customers, generate_products, generate_reference, generate_surveys, rng_for,
 )
 from generator.text_templates import EXPLAINED_MISMATCH_NOTE
 
@@ -138,12 +138,15 @@ def build_dataset(cfg: ScaleConfig, seed: int) -> dict:
     # Training annotations for TRAIN/VALIDATION records (labels follow generation metadata).
     rng_ann = rng_for(seed, "annotations")
     ann_seq = ids.IdSequence("annotation", ID_YEAR)
+    data_end = datetime.combine(cfg.end_date, datetime.max.time().replace(microsecond=0), tzinfo=IST)
     annotations = []
     for r in sorted(base_records, key=lambda x: (x["date"], x["source_id"])):
         split = splits[r["source_id"]]
         if split == "TEST":
             continue
-        when = datetime.fromisoformat(r["date"]) + timedelta(days=rng_ann.randint(1, 14), hours=rng_ann.randint(0, 8))
+        fb_when = datetime.fromisoformat(r["date"])
+        when = fb_when + timedelta(days=rng_ann.randint(1, 14), hours=rng_ann.randint(0, 8))
+        when = max(fb_when, min(when, data_end))  # annotations happen inside the data window
         annotations.append({
             "annotation_id": ann_seq.next(), "feedback_id": ids.feedback_id(r["source_id"]),
             "sentiment_label": r["meta"]["true_sentiment"], "theme_labels": list(r["meta"]["true_theme_ids"]),

@@ -205,7 +205,7 @@ CREATE TABLE feedback_items (
     redacted_text       TEXT,
     language            VARCHAR(2)   NOT NULL CHECK (language IN ('en','hi','te')),
     text_hash           CHAR(64)     NOT NULL,
-    dataset_split       VARCHAR(10)  NOT NULL CHECK (dataset_split IN ('TRAIN','VALIDATION','TEST')),
+    dataset_split       VARCHAR(10)  NOT NULL CHECK (dataset_split IN ('TRAIN','VALIDATION','TEST','UNASSIGNED')),  -- UNASSIGNED = live feedback via API
     processing_status   VARCHAR(12)  NOT NULL
                         CHECK (processing_status IN ('INGESTED','VALIDATED','PROCESSED','DUPLICATE','QUARANTINED')),
     created_at          TIMESTAMPTZ  NOT NULL DEFAULT now(),
@@ -255,7 +255,7 @@ CREATE INDEX ix_annotations_feedback ON feedback_annotations (feedback_id);
 CREATE SEQUENCE pipeline_run_seq START 1;
 CREATE TABLE pipeline_runs (
     run_id                   VARCHAR(10)  PRIMARY KEY CHECK (run_id ~ '^RUN-[0-9]{6}$'),
-    run_type                 VARCHAR(12)  NOT NULL CHECK (run_type IN ('FULL','VALIDATION','TRAINING','INFERENCE','ACTIONS')),
+    run_type                 VARCHAR(12)  NOT NULL CHECK (run_type IN ('FULL','INGESTION','VALIDATION','TRAINING','INFERENCE','ACTIONS')),
     status                   VARCHAR(10)  NOT NULL CHECK (status IN ('RUNNING','SUCCEEDED','FAILED')),
     triggered_by             VARCHAR(60)  NOT NULL,
     parameters               JSONB        NOT NULL DEFAULT '{}',
