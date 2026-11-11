@@ -1,0 +1,201 @@
+message_id,ticket_id,message_seq,sender_type,message_text,sent_at,language,created_at
+MSG-TKT-2026-000001-001,TKT-2026-000001,1,CUSTOMER,"App malli malli crash avtundi, inka refund and return chala worst ga undi.",2026-01-08T20:41:23+05:30,te,2026-01-08T20:41:23+05:30
+MSG-TKT-2026-000001-002,TKT-2026-000001,2,AGENT,We have initiated the required action for TKT-2026-000001. Please allow 3-5 working days.,2026-01-09T07:56:23+05:30,en,2026-01-09T07:56:23+05:30
+MSG-TKT-2026-000001-003,TKT-2026-000001,3,CUSTOMER,Customer support chala worst ga undi. 😤,2026-01-09T22:30:23+05:30,te,2026-01-09T22:30:23+05:30
+MSG-TKT-2026-000002-001,TKT-2026-000002,1,CUSTOMER,"Hi, regarding order ORD-14113: OTP never arrives so I cannot log in, plus terrible delivery experience, the tracking was wrong the whole time.",2026-01-11T09:00:37+05:30,en,2026-01-11T09:00:37+05:30
+MSG-TKT-2026-000002-002,TKT-2026-000002,2,AGENT,We apologise for the trouble. Could you please share a photo of the issue?,2026-01-12T09:21:37+05:30,en,2026-01-12T09:21:37+05:30
+MSG-TKT-2026-000003-001,TKT-2026-000003,1,CUSTOMER,"Hi, regarding order ORD-57947: Honestly, the box was damaged and the seal was broken. Not buying again.",2026-01-23T15:51:54+05:30,en,2026-01-23T15:51:54+05:30
+MSG-TKT-2026-000003-002,TKT-2026-000003,2,AGENT,"Hi, we have checked your order ORD-57947. Our team will update you within 24 hours.",2026-01-24T09:53:54+05:30,en,2026-01-24T09:53:54+05:30
+MSG-TKT-2026-000003-003,TKT-2026-000003,3,CUSTOMER,"Your reply did not help at all, the problem is still there.",2026-01-24T10:48:54+05:30,en,2026-01-24T10:48:54+05:30
+MSG-TKT-2026-000004-001,TKT-2026-000004,1,CUSTOMER,"Hi, regarding order ORD-79649: Update: support team went above and beyond to help me but the courier never showed up and marked it as delivered. Mixed feelings overall.",2026-01-28T18:36:16+05:30,en,2026-01-28T18:36:16+05:30
+MSG-TKT-2026-000005-001,TKT-2026-000005,1,CUSTOMER,पैकेजिंग को लेकर बहुत निराशा हुई।,2026-02-01T22:08:58+05:30,hi,2026-02-01T22:08:58+05:30
+MSG-TKT-2026-000005-002,TKT-2026-000005,2,AGENT,We apologise for the trouble. Could you please share a photo of the issue?,2026-02-02T19:23:58+05:30,en,2026-02-02T19:23:58+05:30
+MSG-TKT-2026-000006-001,TKT-2026-000006,1,CUSTOMER,Payment ke baare mein koi khaas raay nahi.,2026-02-06T21:32:23+05:30,hi,2026-02-06T21:32:23+05:30
+MSG-TKT-2026-000006-002,TKT-2026-000006,2,AGENT,"Hi, we have checked your order ORD-84882. Our team will update you within 24 hours.",2026-02-07T16:48:23+05:30,en,2026-02-07T16:48:23+05:30
+MSG-TKT-2026-000006-003,TKT-2026-000006,3,CUSTOMER,Customer support se main bahut khush hoon.,2026-02-08T20:54:23+05:30,hi,2026-02-08T20:54:23+05:30
+MSG-TKT-2026-000006-004,TKT-2026-000006,4,AGENT,"Hi, we have checked your order ORD-84882. Our team will update you within 24 hours.",2026-02-08T22:40:23+05:30,en,2026-02-08T22:40:23+05:30
+MSG-TKT-2026-000007-001,TKT-2026-000007,1,CUSTOMER,"Hello, The return pickup was cancelled 2 times, however glad it was finally back in stock.",2026-02-08T09:02:50+05:30,en,2026-02-08T09:02:50+05:30
+MSG-TKT-2026-000007-002,TKT-2026-000007,2,AGENT,Your request has been registered under TKT-2026-000007. We will get back to you shortly.,2026-02-09T16:52:50+05:30,en,2026-02-09T16:52:50+05:30
+MSG-TKT-2026-000008-001,TKT-2026-000008,1,CUSTOMER,"Well, very disappointed with the taste, it feels cheap and flimsy. Also, refund of 650 rupees has not been credited yet and the device firmware update failed and now it does not turn on. 😤",2026-02-09T17:30:28+05:30,en,2026-02-09T17:30:28+05:30
+MSG-TKT-2026-000008-002,TKT-2026-000008,2,AGENT,We have initiated the required action for TKT-2026-000008. Please allow 3-5 working days.,2026-02-10T16:04:28+05:30,en,2026-02-10T16:04:28+05:30
+MSG-TKT-2026-000009-001,TKT-2026-000009,1,CUSTOMER,Nenu app update chesanu.,2026-02-15T12:11:39+05:30,te,2026-02-15T12:11:39+05:30
+MSG-TKT-2026-000009-002,TKT-2026-000009,2,AGENT,Your request has been registered under TKT-2026-000009. We will get back to you shortly.,2026-02-16T15:25:39+05:30,en,2026-02-16T15:25:39+05:30
+MSG-TKT-2026-000009-003,TKT-2026-000009,3,CUSTOMER,Customer support gurinchi special ga emi ledu.,2026-02-17T05:16:39+05:30,te,2026-02-17T05:16:39+05:30
+MSG-TKT-2026-000010-001,TKT-2026-000010,1,CUSTOMER,"Hi, regarding order ORD-81835: update: i was charged twice for the same order but the courier was polite and delivered on time",2026-02-18T08:52:26+05:30,en,2026-02-18T08:52:26+05:30
+MSG-TKT-2026-000010-002,TKT-2026-000010,2,AGENT,"Hi, we have checked your order ORD-81835. Our team will update you within 24 hours.",2026-02-19T18:18:26+05:30,en,2026-02-19T18:18:26+05:30
+MSG-TKT-2026-000010-003,TKT-2026-000010,3,CUSTOMER,"Thank you for the quick help, everything works now.",2026-02-20T21:47:26+05:30,en,2026-02-20T21:47:26+05:30
+MSG-TKT-2026-000010-004,TKT-2026-000010,4,AGENT,Thank you for reaching out. We are sorry for the inconvenience and have escalated your case TKT-2026-000010.,2026-02-21T20:48:26+05:30,en,2026-02-21T20:48:26+05:30
+MSG-TKT-2026-000011-001,TKT-2026-000011,1,CUSTOMER,"Hi, regarding order ORD-69356: Dear team, update: not worth 999 rupees at all but customer care was patient and polite. Regards.",2026-02-24T20:01:18+05:30,en,2026-02-24T20:01:18+05:30
+MSG-TKT-2026-000011-002,TKT-2026-000011,2,AGENT,Thank you for reaching out. We are sorry for the inconvenience and have escalated your case TKT-2026-000011.,2026-02-25T21:07:18+05:30,en,2026-02-25T21:07:18+05:30
+MSG-TKT-2026-000012-001,TKT-2026-000012,1,CUSTOMER,"Dear support, The latest app update fixed the crashes, although always out of stock when I want to buy it.",2026-02-25T10:00:10+05:30,en,2026-02-25T10:00:10+05:30
+MSG-TKT-2026-000012-002,TKT-2026-000012,2,AGENT,Thank you for reaching out. We are sorry for the inconvenience and have escalated your case TKT-2026-000012.,2026-02-26T18:05:10+05:30,en,2026-02-26T18:05:10+05:30
+MSG-TKT-2026-000012-003,TKT-2026-000012,3,CUSTOMER,"Thank you for the quick help, everything works now.",2026-02-27T19:40:10+05:30,en,2026-02-27T19:40:10+05:30
+MSG-TKT-2026-000013-001,TKT-2026-000013,1,CUSTOMER,"Login nahi ho raha, error aa raha hai, saath hi payment se bahut pareshani hui. 😡",2026-02-26T08:19:51+05:30,hi,2026-02-26T08:19:51+05:30
+MSG-TKT-2026-000013-002,TKT-2026-000013,2,AGENT,We apologise for the trouble. Could you please share a photo of the issue?,2026-02-27T01:59:51+05:30,en,2026-02-27T01:59:51+05:30
+MSG-TKT-2026-000014-001,TKT-2026-000014,1,CUSTOMER,"Delivery ka experience bahut kharab raha, par payment ekdum mast tha.",2026-03-06T12:47:45+05:30,hi,2026-03-06T12:47:45+05:30
+MSG-TKT-2026-000014-002,TKT-2026-000014,2,AGENT,Thank you for reaching out. We are sorry for the inconvenience and have escalated your case TKT-2026-000014.,2026-03-07T07:50:45+05:30,en,2026-03-07T07:50:45+05:30
+MSG-TKT-2026-000014-003,TKT-2026-000014,3,CUSTOMER,Customer support theek thaak tha.,2026-03-07T23:54:45+05:30,hi,2026-03-07T23:54:45+05:30
+MSG-TKT-2026-000014-004,TKT-2026-000014,4,AGENT,We apologise for the trouble. Could you please share a photo of the issue?,2026-03-08T04:58:45+05:30,en,2026-03-08T04:58:45+05:30
+MSG-TKT-2026-000015-001,TKT-2026-000015,1,CUSTOMER,"Dear support, so paid by card at checkout, plus the agent asked me to wait for an update. also, please add an option to choose a delivery time slot",2026-03-12T10:24:33+05:30,en,2026-03-12T10:24:33+05:30
+MSG-TKT-2026-000015-002,TKT-2026-000015,2,AGENT,Your request has been registered under TKT-2026-000015. We will get back to you shortly.,2026-03-13T16:06:33+05:30,en,2026-03-13T16:06:33+05:30
+MSG-TKT-2026-000015-003,TKT-2026-000015,3,CUSTOMER,"Okay, I have shared the details you asked for.",2026-03-14T05:11:33+05:30,en,2026-03-14T05:11:33+05:30
+MSG-TKT-2026-000016-001,TKT-2026-000016,1,CUSTOMER,"Dear support, update: please add an offline mode for the order history",2026-03-13T17:43:39+05:30,en,2026-03-13T17:43:39+05:30
+MSG-TKT-2026-000016-002,TKT-2026-000016,2,AGENT,"Hi, we have checked your order ORD-22366. Our team will update you within 24 hours.",2026-03-14T12:49:39+05:30,en,2026-03-14T12:49:39+05:30
+MSG-TKT-2026-000016-003,TKT-2026-000016,3,CUSTOMER,"Noted, I will wait for the update.",2026-03-14T17:53:39+05:30,en,2026-03-14T17:53:39+05:30
+MSG-TKT-2026-000017-001,TKT-2026-000017,1,CUSTOMER,"Delivery bilkul bekaar tha, saath hi payment se bahut pareshani hui.",2026-03-17T09:44:52+05:30,hi,2026-03-17T09:44:52+05:30
+MSG-TKT-2026-000017-002,TKT-2026-000017,2,AGENT,Thank you for reaching out. We are sorry for the inconvenience and have escalated your case TKT-2026-000017.,2026-03-18T06:34:52+05:30,en,2026-03-18T06:34:52+05:30
+MSG-TKT-2026-000018-001,TKT-2026-000018,1,CUSTOMER,"Hello, Overall, after the update the non-stick coating keeps disconnecting. My payment failed but the money was deducted and packaging was poor, the item arrived crushed.",2026-03-26T17:14:39+05:30,en,2026-03-26T17:14:39+05:30
+MSG-TKT-2026-000018-002,TKT-2026-000018,2,AGENT,Your request has been registered under TKT-2026-000018. We will get back to you shortly.,2026-03-27T23:46:39+05:30,en,2026-03-27T23:46:39+05:30
+MSG-TKT-2026-000018-003,TKT-2026-000018,3,CUSTOMER,"Okay, I have shared the details you asked for.",2026-03-28T12:09:39+05:30,en,2026-03-28T12:09:39+05:30
+MSG-TKT-2026-000019-001,TKT-2026-000019,1,CUSTOMER,"Hello, Dear team, overall, still waiting for my refund after 12 days. Fix this please. Regards.",2026-04-02T11:22:25+05:30,en,2026-04-02T11:22:25+05:30
+MSG-TKT-2026-000020-001,TKT-2026-000020,1,CUSTOMER,"Hi, regarding order ORD-92248: Overall, my package was left outside in the rain, awful delivery service. The app is confusing and hard to navigate. Really unhappy.",2026-04-06T09:33:01+05:30,en,2026-04-06T09:33:01+05:30
+MSG-TKT-2026-000020-002,TKT-2026-000020,2,AGENT,Thank you for reaching out. We are sorry for the inconvenience and have escalated your case TKT-2026-000020.,2026-04-06T20:57:01+05:30,en,2026-04-06T20:57:01+05:30
+MSG-TKT-2026-000021-001,TKT-2026-000021,1,CUSTOMER,I was charged twice for the same order.,2026-04-19T19:10:51+05:30,en,2026-04-19T19:10:51+05:30
+MSG-TKT-2026-000021-002,TKT-2026-000021,2,AGENT,"Hi, we have checked your order ORD-12664. Our team will update you within 24 hours.",2026-04-20T02:35:51+05:30,en,2026-04-20T02:35:51+05:30
+MSG-TKT-2026-000022-001,TKT-2026-000022,1,CUSTOMER,"स्टॉक की उपलब्धता के साथ मेरा अनुभव बहुत खराब रहा, और पैकेजिंग बिल्कुल बेकार रहा।",2026-04-20T08:54:24+05:30,hi,2026-04-20T08:54:24+05:30
+MSG-TKT-2026-000022-002,TKT-2026-000022,2,AGENT,Thank you for reaching out. We are sorry for the inconvenience and have escalated your case TKT-2026-000022.,2026-04-21T06:33:24+05:30,en,2026-04-21T06:33:24+05:30
+MSG-TKT-2026-000022-003,TKT-2026-000022,3,CUSTOMER,कस्टमर सपोर्ट ठीक-ठाक रहा।,2026-04-21T23:35:24+05:30,hi,2026-04-21T23:35:24+05:30
+MSG-TKT-2026-000023-001,TKT-2026-000023,1,CUSTOMER,"Hi team, Well, the product leaked because the packaging was not sealed properly. Very disappointed!!",2026-04-25T21:59:32+05:30,en,2026-04-25T21:59:32+05:30
+MSG-TKT-2026-000023-002,TKT-2026-000023,2,AGENT,Thank you for reaching out. We are sorry for the inconvenience and have escalated your case TKT-2026-000023.,2026-04-26T18:17:32+05:30,en,2026-04-26T18:17:32+05:30
+MSG-TKT-2026-000023-003,TKT-2026-000023,3,CUSTOMER,"Your reply did not help at all, the problem is still there.",2026-04-26T19:46:32+05:30,en,2026-04-26T19:46:32+05:30
+MSG-TKT-2026-000023-004,TKT-2026-000023,4,AGENT,Thank you for reaching out. We are sorry for the inconvenience and have escalated your case TKT-2026-000023.,2026-04-27T10:25:32+05:30,en,2026-04-27T10:25:32+05:30
+MSG-TKT-2026-000024-001,TKT-2026-000024,1,CUSTOMER,"Hi team, The sound quality stopped working within 15 days, plus I was charged twice for the same order.",2026-04-26T16:38:36+05:30,en,2026-04-26T16:38:36+05:30
+MSG-TKT-2026-000024-002,TKT-2026-000024,2,AGENT,Your request has been registered under TKT-2026-000024. We will get back to you shortly.,2026-04-26T17:58:36+05:30,en,2026-04-26T17:58:36+05:30
+MSG-TKT-2026-000024-003,TKT-2026-000024,3,CUSTOMER,"Noted, I will wait for the update.",2026-04-27T17:46:36+05:30,en,2026-04-27T17:46:36+05:30
+MSG-TKT-2026-000025-001,TKT-2026-000025,1,CUSTOMER,"Hi, regarding order ORD-34821: Well, paid by card at checkout.",2026-04-29T13:36:31+05:30,en,2026-04-29T13:36:31+05:30
+MSG-TKT-2026-000025-002,TKT-2026-000025,2,AGENT,Your request has been registered under TKT-2026-000025. We will get back to you shortly.,2026-04-30T08:38:31+05:30,en,2026-04-30T08:38:31+05:30
+MSG-TKT-2026-000025-003,TKT-2026-000025,3,CUSTOMER,"Appreciate the support, problem solved.",2026-05-01T07:16:31+05:30,en,2026-05-01T07:16:31+05:30
+MSG-TKT-2026-000026-001,TKT-2026-000026,1,CUSTOMER,"Hi team, Very disappointed with the fit, it feels cheap and flimsy.",2026-05-02T18:10:56+05:30,en,2026-05-02T18:10:56+05:30
+MSG-TKT-2026-000026-002,TKT-2026-000026,2,AGENT,Your request has been registered under TKT-2026-000026. We will get back to you shortly.,2026-05-03T14:55:56+05:30,en,2026-05-03T14:55:56+05:30
+MSG-TKT-2026-000026-003,TKT-2026-000026,3,CUSTOMER,This is the third time I am writing and still no solution.,2026-05-04T12:02:56+05:30,en,2026-05-04T12:02:56+05:30
+MSG-TKT-2026-000026-004,TKT-2026-000026,4,AGENT,Your request has been registered under TKT-2026-000026. We will get back to you shortly.,2026-05-04T17:01:56+05:30,en,2026-05-04T17:01:56+05:30
+MSG-TKT-2026-000027-001,TKT-2026-000027,1,CUSTOMER,"Dear support, My package was left outside in the rain, awful delivery service, plus UPI payment keeps failing at checkout.",2026-05-02T22:31:21+05:30,en,2026-05-02T22:31:21+05:30
+MSG-TKT-2026-000027-002,TKT-2026-000027,2,AGENT,Thank you for reaching out. We are sorry for the inconvenience and have escalated your case TKT-2026-000027.,2026-05-03T07:14:21+05:30,en,2026-05-03T07:14:21+05:30
+MSG-TKT-2026-000027-003,TKT-2026-000027,3,CUSTOMER,"Appreciate the support, problem solved.",2026-05-03T12:44:21+05:30,en,2026-05-03T12:44:21+05:30
+MSG-TKT-2026-000027-004,TKT-2026-000027,4,AGENT,"Hi, we have checked your order ORD-41804. Our team will update you within 24 hours.",2026-05-03T18:06:21+05:30,en,2026-05-03T18:06:21+05:30
+MSG-TKT-2026-000028-001,TKT-2026-000028,1,CUSTOMER,"Hi team, Dear team, overall, please add an option to choose a delivery time slot. Regards.",2026-05-11T09:23:35+05:30,en,2026-05-11T09:23:35+05:30
+MSG-TKT-2026-000028-002,TKT-2026-000028,2,AGENT,We have initiated the required action for TKT-2026-000028. Please allow 3-5 working days.,2026-05-11T10:35:35+05:30,en,2026-05-11T10:35:35+05:30
+MSG-TKT-2026-000028-003,TKT-2026-000028,3,CUSTOMER,"Appreciate the support, problem solved.",2026-05-12T18:45:35+05:30,en,2026-05-12T18:45:35+05:30
+MSG-TKT-2026-000029-001,TKT-2026-000029,1,CUSTOMER,"Hello, Overall, delivery took 5 days, as estimated. Some variants show limited stock and paid 199 rupees, which is the usual price.",2026-05-20T09:03:02+05:30,en,2026-05-20T09:03:02+05:30
+MSG-TKT-2026-000029-002,TKT-2026-000029,2,AGENT,"Hi, we have checked your order ORD-45161. Our team will update you within 24 hours.",2026-05-21T04:52:02+05:30,en,2026-05-21T04:52:02+05:30
+MSG-TKT-2026-000030-001,TKT-2026-000030,1,CUSTOMER,"Hi team, Dear team, honestly, the Voltix Fit Smartwatch S2 is defective, the battery life is faulty. Regards.",2026-05-20T18:31:44+05:30,en,2026-05-20T18:31:44+05:30
+MSG-TKT-2026-000030-002,TKT-2026-000030,2,AGENT,Your request has been registered under TKT-2026-000030. We will get back to you shortly.,2026-05-21T08:21:44+05:30,en,2026-05-21T08:21:44+05:30
+MSG-TKT-2026-000030-003,TKT-2026-000030,3,CUSTOMER,"Noted, I will wait for the update.",2026-05-22T10:20:44+05:30,en,2026-05-22T10:20:44+05:30
+MSG-TKT-2026-000030-004,TKT-2026-000030,4,AGENT,"Hi, we have checked your order ORD-40721. Our team will update you within 24 hours.",2026-05-22T20:47:44+05:30,en,2026-05-22T20:47:44+05:30
+MSG-TKT-2026-000031-001,TKT-2026-000031,1,CUSTOMER,"Hi, regarding order ORD-77262: Overall, still waiting for my refund after 9 days.",2026-05-21T20:56:56+05:30,en,2026-05-21T20:56:56+05:30
+MSG-TKT-2026-000031-002,TKT-2026-000031,2,AGENT,Your request has been registered under TKT-2026-000031. We will get back to you shortly.,2026-05-22T12:27:56+05:30,en,2026-05-22T12:27:56+05:30
+MSG-TKT-2026-000032-001,TKT-2026-000032,1,CUSTOMER,"Dear support, refund of 300 rupees has not been credited yet. also, cannot log in, it keeps showing an error. fix this please",2026-05-22T12:05:05+05:30,en,2026-05-22T12:05:05+05:30
+MSG-TKT-2026-000032-002,TKT-2026-000032,2,AGENT,"Hi, we have checked your order ORD-90735. Our team will update you within 24 hours.",2026-05-22T20:50:05+05:30,en,2026-05-22T20:50:05+05:30
+MSG-TKT-2026-000032-003,TKT-2026-000032,3,CUSTOMER,"Appreciate the support, problem solved.",2026-05-23T02:33:05+05:30,en,2026-05-23T02:33:05+05:30
+MSG-TKT-2026-000032-004,TKT-2026-000032,4,AGENT,Your request has been registered under TKT-2026-000032. We will get back to you shortly.,2026-05-23T15:49:05+05:30,en,2026-05-23T15:49:05+05:30
+MSG-TKT-2026-000033-001,TKT-2026-000033,1,CUSTOMER,"Hi team, Packaging was poor, the item arrived crushed.",2026-05-25T16:32:14+05:30,en,2026-05-25T16:32:14+05:30
+MSG-TKT-2026-000033-002,TKT-2026-000033,2,AGENT,Your request has been registered under TKT-2026-000033. We will get back to you shortly.,2026-05-26T21:52:14+05:30,en,2026-05-26T21:52:14+05:30
+MSG-TKT-2026-000033-003,TKT-2026-000033,3,CUSTOMER,"Appreciate the support, problem solved.",2026-05-27T05:18:14+05:30,en,2026-05-27T05:18:14+05:30
+MSG-TKT-2026-000034-001,TKT-2026-000034,1,CUSTOMER,"Dear support, So the zip is terrible and the product feels badly made. Fix this please!!",2026-06-10T14:12:00+05:30,en,2026-06-10T14:12:00+05:30
+MSG-TKT-2026-000034-002,TKT-2026-000034,2,AGENT,We have initiated the required action for TKT-2026-000034. Please allow 3-5 working days.,2026-06-11T12:32:00+05:30,en,2026-06-11T12:32:00+05:30
+MSG-TKT-2026-000035-001,TKT-2026-000035,1,CUSTOMER,"Hi, regarding order ORD-28334: honestly, the courier never showed up and marked it as delivered",2026-06-15T08:13:52+05:30,en,2026-06-15T08:13:52+05:30
+MSG-TKT-2026-000035-002,TKT-2026-000035,2,AGENT,We apologise for the trouble. Could you please share a photo of the issue?,2026-06-15T14:45:52+05:30,en,2026-06-15T14:45:52+05:30
+MSG-TKT-2026-000036-001,TKT-2026-000036,1,CUSTOMER,"ऐप बार-बार क्रैश हो रहा है, और पेमेंट के साथ मेरा अनुभव बहुत खराब रहा।",2026-06-19T12:10:59+05:30,hi,2026-06-19T12:10:59+05:30
+MSG-TKT-2026-000036-002,TKT-2026-000036,2,AGENT,Thank you for reaching out. We are sorry for the inconvenience and have escalated your case TKT-2026-000036.,2026-06-20T19:34:59+05:30,en,2026-06-20T19:34:59+05:30
+MSG-TKT-2026-000036-003,TKT-2026-000036,3,CUSTOMER,कस्टमर सपोर्ट के साथ मेरा अनुभव बहुत खराब रहा।,2026-06-22T05:41:59+05:30,hi,2026-06-22T05:41:59+05:30
+MSG-TKT-2026-000037-001,TKT-2026-000037,1,CUSTOMER,"Refund and return tho chala problem ayindi, inka delivery assalu baledu.",2026-06-21T11:25:59+05:30,te,2026-06-21T11:25:59+05:30
+MSG-TKT-2026-000038-001,TKT-2026-000038,1,CUSTOMER,"Hi, regarding order ORD-64236: So they rejected my return request without any reason and the app crashes every time I open my orders. Very disappointed.",2026-06-29T09:56:09+05:30,en,2026-06-29T09:56:09+05:30
+MSG-TKT-2026-000038-002,TKT-2026-000038,2,AGENT,We apologise for the trouble. Could you please share a photo of the issue?,2026-06-30T10:00:09+05:30,en,2026-06-30T10:00:09+05:30
+MSG-TKT-2026-000038-003,TKT-2026-000038,3,CUSTOMER,"Appreciate the support, problem solved.",2026-07-01T00:35:09+05:30,en,2026-07-01T00:35:09+05:30
+MSG-TKT-2026-000039-001,TKT-2026-000039,1,CUSTOMER,"Hello, To be fair, I checked availability before ordering. Thanks!!",2026-07-02T14:38:04+05:30,en,2026-07-02T14:38:04+05:30
+MSG-TKT-2026-000039-002,TKT-2026-000039,2,AGENT,We have initiated the required action for TKT-2026-000039. Please allow 3-5 working days.,2026-07-03T09:17:04+05:30,en,2026-07-03T09:17:04+05:30
+MSG-TKT-2026-000040-001,TKT-2026-000040,1,CUSTOMER,"Hi, regarding order ORD-31894: I paid using UPI. I checked availability before ordering!!",2026-07-03T22:15:15+05:30,en,2026-07-03T22:15:15+05:30
+MSG-TKT-2026-000040-002,TKT-2026-000040,2,AGENT,Thank you for reaching out. We are sorry for the inconvenience and have escalated your case TKT-2026-000040.,2026-07-04T15:56:15+05:30,en,2026-07-04T15:56:15+05:30
+MSG-TKT-2026-000041-001,TKT-2026-000041,1,CUSTOMER,"Hi team, honestly, overpriced compared to other brands, however the latest app update fixed the crashes",2026-07-05T17:04:46+05:30,en,2026-07-05T17:04:46+05:30
+MSG-TKT-2026-000041-002,TKT-2026-000041,2,AGENT,We have initiated the required action for TKT-2026-000041. Please allow 3-5 working days.,2026-07-06T02:19:46+05:30,en,2026-07-06T02:19:46+05:30
+MSG-TKT-2026-000042-001,TKT-2026-000042,1,CUSTOMER,So always out of stock when I want to buy it. This is Krishna Sharma (krishna.sharma.246@example.com).,2026-07-05T17:18:47+05:30,en,2026-07-05T17:18:47+05:30
+MSG-TKT-2026-000042-002,TKT-2026-000042,2,AGENT,Your request has been registered under TKT-2026-000042. We will get back to you shortly.,2026-07-06T23:27:47+05:30,en,2026-07-06T23:27:47+05:30
+MSG-TKT-2026-000043-001,TKT-2026-000043,1,CUSTOMER,"Dear support, Update: I checked availability before ordering!!",2026-07-08T14:01:12+05:30,en,2026-07-08T14:01:12+05:30
+MSG-TKT-2026-000044-001,TKT-2026-000044,1,CUSTOMER,"Hello, Overall, overpriced compared to other brands. Also, it has been sold out for 7 weeks with no restock date, plus poor quality, the seal broke after a week. Really unhappy.",2026-07-14T14:46:52+05:30,en,2026-07-14T14:46:52+05:30
+MSG-TKT-2026-000044-002,TKT-2026-000044,2,AGENT,We apologise for the trouble. Could you please share a photo of the issue?,2026-07-15T13:45:52+05:30,en,2026-07-15T13:45:52+05:30
+MSG-TKT-2026-000044-003,TKT-2026-000044,3,CUSTOMER,"Okay, I have shared the details you asked for.",2026-07-15T20:13:52+05:30,en,2026-07-15T20:13:52+05:30
+MSG-TKT-2026-000045-001,TKT-2026-000045,1,CUSTOMER,"Hi, regarding order ORD-14976: Dear team, to be fair, OTP never arrives so I cannot log in and the non-stick coating stopped working within 4 days. Regards. You can reach me at venkat.yadav.18@example.com or call +91-9173414126.",2026-07-16T08:22:55+05:30,en,2026-07-16T08:22:55+05:30
+MSG-TKT-2026-000045-002,TKT-2026-000045,2,AGENT,Your request has been registered under TKT-2026-000045. We will get back to you shortly.,2026-07-16T20:09:55+05:30,en,2026-07-16T20:09:55+05:30
+MSG-TKT-2026-000046-001,TKT-2026-000046,1,CUSTOMER,Payment ka experience bahut kharab raha.,2026-07-16T22:35:38+05:30,hi,2026-07-16T22:35:38+05:30
+MSG-TKT-2026-000046-002,TKT-2026-000046,2,AGENT,We have initiated the required action for TKT-2026-000046. Please allow 3-5 working days.,2026-07-18T09:42:38+05:30,en,2026-07-18T09:42:38+05:30
+MSG-TKT-2026-000046-003,TKT-2026-000046,3,CUSTOMER,Customer support ke baare mein koi khaas raay nahi.,2026-07-18T22:21:38+05:30,hi,2026-07-18T22:21:38+05:30
+MSG-TKT-2026-000046-004,TKT-2026-000046,4,AGENT,We apologise for the trouble. Could you please share a photo of the issue?,2026-07-19T04:11:38+05:30,en,2026-07-19T04:11:38+05:30
+MSG-TKT-2026-000047-001,TKT-2026-000047,1,CUSTOMER,"Dear support, Customer support is useless, nobody responds. Also, poor quality, the taste broke after a week. Really unhappy.",2026-07-25T10:16:55+05:30,en,2026-07-25T10:16:55+05:30
+MSG-TKT-2026-000047-002,TKT-2026-000047,2,AGENT,We have initiated the required action for TKT-2026-000047. Please allow 3-5 working days.,2026-07-26T16:47:55+05:30,en,2026-07-26T16:47:55+05:30
+MSG-TKT-2026-000048-001,TKT-2026-000048,1,CUSTOMER,"Dear team, to be fair, finding products is quick and intuitive. On the other hand, delivery was delayed by 8 days with no updates. Mixed feelings overall. Regards.",2026-07-26T15:19:00+05:30,en,2026-07-26T15:19:00+05:30
+MSG-TKT-2026-000048-002,TKT-2026-000048,2,AGENT,"Hi, we have checked your order ORD-53857. Our team will update you within 24 hours.",2026-07-27T13:57:00+05:30,en,2026-07-27T13:57:00+05:30
+MSG-TKT-2026-000049-001,TKT-2026-000049,1,CUSTOMER,"Hello, Honestly, please add an option to choose a delivery time slot, plus I mostly use the mobile app to order. Thanks. 🙂",2026-07-29T18:43:28+05:30,en,2026-07-29T18:43:28+05:30
+MSG-TKT-2026-000050-001,TKT-2026-000050,1,CUSTOMER,"Hello, Honestly, the product leaked because the packaging was not sealed properly. Not buying again.",2026-08-03T19:52:00+05:30,en,2026-08-03T19:52:00+05:30
+MSG-TKT-2026-000050-002,TKT-2026-000050,2,AGENT,Your request has been registered under TKT-2026-000050. We will get back to you shortly.,2026-08-05T00:56:00+05:30,en,2026-08-05T00:56:00+05:30
+MSG-TKT-2026-000051-001,TKT-2026-000051,1,CUSTOMER,"Hi, regarding order ORD-67985: The sound quality is terrible and the product feels badly made. Also, refund of 300 rupees has not been credited yet.",2026-08-07T21:57:33+05:30,en,2026-08-07T21:57:33+05:30
+MSG-TKT-2026-000051-002,TKT-2026-000051,2,AGENT,We have initiated the required action for TKT-2026-000051. Please allow 3-5 working days.,2026-08-08T09:22:33+05:30,en,2026-08-08T09:22:33+05:30
+MSG-TKT-2026-000051-003,TKT-2026-000051,3,CUSTOMER,"Noted, I will wait for the update.",2026-08-08T16:23:33+05:30,en,2026-08-08T16:23:33+05:30
+MSG-TKT-2026-000052-001,TKT-2026-000052,1,CUSTOMER,"Hi team, Great, my order arrived 7 days late. Just what I needed!!",2026-08-08T13:51:04+05:30,en,2026-08-08T13:51:04+05:30
+MSG-TKT-2026-000052-002,TKT-2026-000052,2,AGENT,We apologise for the trouble. Could you please share a photo of the issue?,2026-08-08T16:59:04+05:30,en,2026-08-08T16:59:04+05:30
+MSG-TKT-2026-000052-003,TKT-2026-000052,3,CUSTOMER,"Thanks a lot, the issue is resolved now.",2026-08-09T09:28:04+05:30,en,2026-08-09T09:28:04+05:30
+MSG-TKT-2026-000053-001,TKT-2026-000053,1,CUSTOMER,"Hello, Customer support is useless, nobody responds.",2026-08-09T20:58:51+05:30,en,2026-08-09T20:58:51+05:30
+MSG-TKT-2026-000053-002,TKT-2026-000053,2,AGENT,We apologise for the trouble. Could you please share a photo of the issue?,2026-08-10T23:20:51+05:30,en,2026-08-10T23:20:51+05:30
+MSG-TKT-2026-000054-001,TKT-2026-000054,1,CUSTOMER,"Hello, the product leaked because the packaging was not sealed properly. really unhappy",2026-08-13T15:44:14+05:30,en,2026-08-13T15:44:14+05:30
+MSG-TKT-2026-000054-002,TKT-2026-000054,2,AGENT,We apologise for the trouble. Could you please share a photo of the issue?,2026-08-13T18:03:14+05:30,en,2026-08-13T18:03:14+05:30
+MSG-TKT-2026-000054-003,TKT-2026-000054,3,CUSTOMER,"Still waiting, nobody has called me back.",2026-08-14T01:17:14+05:30,en,2026-08-14T01:17:14+05:30
+MSG-TKT-2026-000055-001,TKT-2026-000055,1,CUSTOMER,"Hi team, Always out of stock when I want to buy it.",2026-08-16T12:50:00+05:30,en,2026-08-16T12:50:00+05:30
+MSG-TKT-2026-000055-002,TKT-2026-000055,2,AGENT,Your request has been registered under TKT-2026-000055. We will get back to you shortly.,2026-08-16T22:22:00+05:30,en,2026-08-16T22:22:00+05:30
+MSG-TKT-2026-000056-001,TKT-2026-000056,1,CUSTOMER,"honestly, poor quality, the charging port broke after a week. always out of stock when i want to buy it and packaging was poor, the item arrived crushed",2026-08-18T19:16:59+05:30,en,2026-08-18T19:16:59+05:30
+MSG-TKT-2026-000056-002,TKT-2026-000056,2,AGENT,Thank you for reaching out. We are sorry for the inconvenience and have escalated your case TKT-2026-000056.,2026-08-18T23:46:59+05:30,en,2026-08-18T23:46:59+05:30
+MSG-TKT-2026-000056-003,TKT-2026-000056,3,CUSTOMER,"Still waiting, nobody has called me back.",2026-08-19T23:22:59+05:30,en,2026-08-19T23:22:59+05:30
+MSG-TKT-2026-000056-004,TKT-2026-000056,4,AGENT,"Hi, we have checked your order ORD-28779. Our team will update you within 24 hours.",2026-08-21T04:53:59+05:30,en,2026-08-21T04:53:59+05:30
+MSG-TKT-2026-000057-001,TKT-2026-000057,1,CUSTOMER,"Hi, regarding order ORD-55680: order ord-18417 arrived 7 days late",2026-08-19T19:08:33+05:30,en,2026-08-19T19:08:33+05:30
+MSG-TKT-2026-000057-002,TKT-2026-000057,2,AGENT,We apologise for the trouble. Could you please share a photo of the issue?,2026-08-21T05:48:33+05:30,en,2026-08-21T05:48:33+05:30
+MSG-TKT-2026-000057-003,TKT-2026-000057,3,CUSTOMER,"Appreciate the support, problem solved. Contact me on nikhil.iyer.177@example.com for the details.",2026-08-21T17:07:33+05:30,en,2026-08-21T17:07:33+05:30
+MSG-TKT-2026-000058-001,TKT-2026-000058,1,CUSTOMER,Product ki quality ka experience bahut kharab raha.,2026-08-22T15:31:41+05:30,hi,2026-08-22T15:31:41+05:30
+MSG-TKT-2026-000058-002,TKT-2026-000058,2,AGENT,We apologise for the trouble. Could you please share a photo of the issue?,2026-08-23T03:17:41+05:30,en,2026-08-23T03:17:41+05:30
+MSG-TKT-2026-000058-003,TKT-2026-000058,3,CUSTOMER,Customer support se main bahut khush hoon. 👍,2026-08-24T08:24:41+05:30,hi,2026-08-24T08:24:41+05:30
+MSG-TKT-2026-000059-001,TKT-2026-000059,1,CUSTOMER,"Dear support, Well, refund of 650 rupees has not been credited yet. Poor quality, the charging port broke after a week. Fix this please.",2026-08-30T12:15:03+05:30,en,2026-08-30T12:15:03+05:30
+MSG-TKT-2026-000059-002,TKT-2026-000059,2,AGENT,Your request has been registered under TKT-2026-000059. We will get back to you shortly.,2026-08-31T18:06:03+05:30,en,2026-08-31T18:06:03+05:30
+MSG-TKT-2026-000059-003,TKT-2026-000059,3,CUSTOMER,"Thank you for the quick help, everything works now.",2026-09-01T07:10:03+05:30,en,2026-09-01T07:10:03+05:30
+MSG-TKT-2026-000059-004,TKT-2026-000059,4,AGENT,We have initiated the required action for TKT-2026-000059. Please allow 3-5 working days.,2026-09-02T13:30:03+05:30,en,2026-09-02T13:30:03+05:30
+MSG-TKT-2026-000060-001,TKT-2026-000060,1,CUSTOMER,"Hi team, Well, order ORD-58974 arrived 9 days late. Fix this please.",2026-08-30T18:27:23+05:30,en,2026-08-30T18:27:23+05:30
+MSG-TKT-2026-000060-002,TKT-2026-000060,2,AGENT,Thank you for reaching out. We are sorry for the inconvenience and have escalated your case TKT-2026-000060.,2026-08-31T02:40:23+05:30,en,2026-08-31T02:40:23+05:30
+MSG-TKT-2026-000061-001,TKT-2026-000061,1,CUSTOMER,"Hi team, Update: the Saarang Denim Jacket is defective, the sole is faulty. Really unhappy.",2026-09-08T08:55:33+05:30,en,2026-09-08T08:55:33+05:30
+MSG-TKT-2026-000061-002,TKT-2026-000061,2,AGENT,We apologise for the trouble. Could you please share a photo of the issue?,2026-09-09T08:57:33+05:30,en,2026-09-09T08:57:33+05:30
+MSG-TKT-2026-000062-001,TKT-2026-000062,1,CUSTOMER,"Hello, So still waiting for my refund after 2 days.",2026-09-09T17:41:43+05:30,en,2026-09-09T17:41:43+05:30
+MSG-TKT-2026-000062-002,TKT-2026-000062,2,AGENT,Your request has been registered under TKT-2026-000062. We will get back to you shortly.,2026-09-10T19:16:43+05:30,en,2026-09-10T19:16:43+05:30
+MSG-TKT-2026-000062-003,TKT-2026-000062,3,CUSTOMER,This is the third time I am writing and still no solution.,2026-09-11T15:02:43+05:30,en,2026-09-11T15:02:43+05:30
+MSG-TKT-2026-000062-004,TKT-2026-000062,4,AGENT,We have initiated the required action for TKT-2026-000062. Please allow 3-5 working days.,2026-09-12T17:56:43+05:30,en,2026-09-12T17:56:43+05:30
+MSG-TKT-2026-000063-001,TKT-2026-000063,1,CUSTOMER,"Hi team, Still waiting for my refund after 9 days.",2026-09-12T10:34:24+05:30,en,2026-09-12T10:34:24+05:30
+MSG-TKT-2026-000064-001,TKT-2026-000064,1,CUSTOMER,"Hello, To be fair, cannot log in, it keeps showing an error, plus delivery was delayed by 7 days with no updates. Fix this please.",2026-09-15T16:16:13+05:30,en,2026-09-15T16:16:13+05:30
+MSG-TKT-2026-000064-002,TKT-2026-000064,2,AGENT,"Hi, we have checked your order ORD-61979. Our team will update you within 24 hours.",2026-09-17T02:03:13+05:30,en,2026-09-17T02:03:13+05:30
+MSG-TKT-2026-000065-001,TKT-2026-000065,1,CUSTOMER,"లాగిన్ అవ్వడం లేదు, ఎర్రర్ వస్తోంది.",2026-09-24T14:32:35+05:30,te,2026-09-24T14:32:35+05:30
+MSG-TKT-2026-000065-002,TKT-2026-000065,2,AGENT,Thank you for reaching out. We are sorry for the inconvenience and have escalated your case TKT-2026-000065.,2026-09-25T12:08:35+05:30,en,2026-09-25T12:08:35+05:30
+MSG-TKT-2026-000066-001,TKT-2026-000066,1,CUSTOMER,"Dear support, Delivery was super fast, arrived in 9 days, however poor quality, the freshness broke after a week. Mixed feelings overall.",2026-09-26T09:28:01+05:30,en,2026-09-26T09:28:01+05:30
+MSG-TKT-2026-000067-001,TKT-2026-000067,1,CUSTOMER,"Hi team, To be fair, please add a notify me option when items are restocked. Thanks.",2026-09-26T10:57:06+05:30,en,2026-09-26T10:57:06+05:30
+MSG-TKT-2026-000067-002,TKT-2026-000067,2,AGENT,Thank you for reaching out. We are sorry for the inconvenience and have escalated your case TKT-2026-000067.,2026-09-26T17:55:06+05:30,en,2026-09-26T17:55:06+05:30
+MSG-TKT-2026-000068-001,TKT-2026-000068,1,CUSTOMER,"Hi team, So too much plastic in the packaging and it was torn.",2026-09-30T22:21:17+05:30,en,2026-09-30T22:21:17+05:30
+MSG-TKT-2026-000068-002,TKT-2026-000068,2,AGENT,We apologise for the trouble. Could you please share a photo of the issue?,2026-10-01T13:45:17+05:30,en,2026-10-01T13:45:17+05:30
+MSG-TKT-2026-000069-001,TKT-2026-000069,1,CUSTOMER,"Hi team, I updated the app to the latest version.",2026-10-06T12:55:53+05:30,en,2026-10-06T12:55:53+05:30
+MSG-TKT-2026-000069-002,TKT-2026-000069,2,AGENT,Your request has been registered under TKT-2026-000069. We will get back to you shortly.,2026-10-07T06:17:53+05:30,en,2026-10-07T06:17:53+05:30
+MSG-TKT-2026-000069-003,TKT-2026-000069,3,CUSTOMER,"Okay, I have shared the details you asked for.",2026-10-08T00:37:53+05:30,en,2026-10-08T00:37:53+05:30
+MSG-TKT-2026-000070-001,TKT-2026-000070,1,CUSTOMER,"Hi team, OTP never arrives so I cannot log in. Very disappointed.",2026-10-12T14:12:13+05:30,en,2026-10-12T14:12:13+05:30
+MSG-TKT-2026-000070-002,TKT-2026-000070,2,AGENT,We apologise for the trouble. Could you please share a photo of the issue?,2026-10-13T05:23:13+05:30,en,2026-10-13T05:23:13+05:30
+MSG-TKT-2026-000070-003,TKT-2026-000070,3,CUSTOMER,"Noted, I will wait for the update.",2026-10-13T14:05:13+05:30,en,2026-10-13T14:05:13+05:30
+MSG-TKT-2026-000071-001,TKT-2026-000071,1,CUSTOMER,"Well, terrible delivery experience, the tracking was wrong the whole time. Fix this please.",2026-10-13T13:34:16+05:30,en,2026-10-13T13:34:16+05:30
+MSG-TKT-2026-000072-001,TKT-2026-000072,1,CUSTOMER,"Hi team, Overall, the card payment got stuck and the amount of 49 rupees is still not reversed!!",2026-10-17T12:23:59+05:30,en,2026-10-17T12:23:59+05:30
+MSG-TKT-2026-000072-002,TKT-2026-000072,2,AGENT,Thank you for reaching out. We are sorry for the inconvenience and have escalated your case TKT-2026-000072.,2026-10-18T04:16:59+05:30,en,2026-10-18T04:16:59+05:30
+MSG-TKT-2026-000073-001,TKT-2026-000073,1,CUSTOMER,रिफंड और रिटर्न के बारे में कोई खास राय नहीं है।,2026-10-17T13:24:32+05:30,hi,2026-10-17T13:24:32+05:30
+MSG-TKT-2026-000073-002,TKT-2026-000073,2,AGENT,Your request has been registered under TKT-2026-000073. We will get back to you shortly.,2026-10-18T08:55:32+05:30,en,2026-10-18T08:55:32+05:30
+MSG-TKT-2026-000073-003,TKT-2026-000073,3,CUSTOMER,कस्टमर सपोर्ट से मैं बहुत खुश हूँ।,2026-10-19T05:35:32+05:30,hi,2026-10-19T05:35:32+05:30
+MSG-TKT-2026-000073-004,TKT-2026-000073,4,AGENT,"Hi, we have checked your order ORD-91292. Our team will update you within 24 hours.",2026-10-20T09:29:32+05:30,en,2026-10-20T09:29:32+05:30
+MSG-TKT-2026-000074-001,TKT-2026-000074,1,CUSTOMER,Product ki quality ka experience bahut kharab raha. 👎,2026-10-17T14:47:09+05:30,hi,2026-10-17T14:47:09+05:30
+MSG-TKT-2026-000074-002,TKT-2026-000074,2,AGENT,Your request has been registered under TKT-2026-000074. We will get back to you shortly.,2026-10-18T21:41:09+05:30,en,2026-10-18T21:41:09+05:30
+MSG-TKT-2026-000074-003,TKT-2026-000074,3,CUSTOMER,Customer support ekdum mast tha.,2026-10-19T18:32:09+05:30,hi,2026-10-19T18:32:09+05:30
+MSG-TKT-2026-000074-004,TKT-2026-000074,4,AGENT,"Hi, we have checked your order ORD-92504. Our team will update you within 24 hours.",2026-10-20T14:20:09+05:30,en,2026-10-20T14:20:09+05:30
+MSG-TKT-2026-000075-001,TKT-2026-000075,1,CUSTOMER,"Dear support, the return pickup was cancelled 9 times. also, the pump dispenser is terrible and the product feels badly made. not buying again",2026-10-20T10:22:23+05:30,en,2026-10-20T10:22:23+05:30
+MSG-TKT-2026-000075-002,TKT-2026-000075,2,AGENT,Thank you for reaching out. We are sorry for the inconvenience and have escalated your case TKT-2026-000075.,2026-10-20T21:57:23+05:30,en,2026-10-20T21:57:23+05:30
+MSG-TKT-2026-000075-003,TKT-2026-000075,3,CUSTOMER,"Still waiting, nobody has called me back.",2026-10-22T08:05:23+05:30,en,2026-10-22T08:05:23+05:30
+MSG-TKT-2026-000076-001,TKT-2026-000076,1,CUSTOMER,"Hello, I was charged twice for the same order. Fix this please.",2026-10-23T20:23:59+05:30,en,2026-10-23T20:23:59+05:30
+MSG-TKT-2026-000076-002,TKT-2026-000076,2,AGENT,Your request has been registered under TKT-2026-000076. We will get back to you shortly.,2026-10-24T20:42:59+05:30,en,2026-10-24T20:42:59+05:30
+MSG-TKT-2026-000077-001,TKT-2026-000077,1,CUSTOMER,"Hi team, Dear team, honestly, fantastic refund process, only 3 weeks and still counting, plus my payment failed but the money was deducted. Very disappointed. Regards.",2026-10-29T19:34:00+05:30,en,2026-10-29T19:34:00+05:30
+MSG-TKT-2026-000077-002,TKT-2026-000077,2,AGENT,We apologise for the trouble. Could you please share a photo of the issue?,2026-10-29T20:54:00+05:30,en,2026-10-29T20:54:00+05:30
+MSG-TKT-2026-000077-003,TKT-2026-000077,3,CUSTOMER,"Thanks a lot, the issue is resolved now.",2026-10-30T07:27:00+05:30,en,2026-10-30T07:27:00+05:30
+MSG-TKT-2026-000078-001,TKT-2026-000078,1,CUSTOMER,"Hi team, So brilliant, charged twice for one order. Love the extra surprise on my bank statement. After the update the fragrance keeps disconnecting. Very disappointed.",2026-10-31T19:06:26+05:30,en,2026-10-31T19:06:26+05:30
+MSG-TKT-2026-000078-002,TKT-2026-000078,2,AGENT,We apologise for the trouble. Could you please share a photo of the issue?,2026-10-31T23:59:59+05:30,en,2026-10-31T23:59:59+05:30
