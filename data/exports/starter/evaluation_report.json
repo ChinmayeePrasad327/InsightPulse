@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-11T17:47:11+00:00",
+  "generated_at": "2026-11-11T17:53:03+00:00",
   "scale": "starter",
   "evaluated_run": {
     "run_id": "RUN-000001",
@@ -135,9 +135,9 @@
         "hi_rom": {
           "n": 8,
           "accuracy": 1.0,
-          "macro_precision": 0.75,
-          "macro_recall": 0.75,
-          "macro_f1": 0.75
+          "macro_precision": 1.0,
+          "macro_recall": 1.0,
+          "macro_f1": 1.0
         },
         "te": {
           "n": 4,
@@ -149,9 +149,9 @@
         "te_rom": {
           "n": 4,
           "accuracy": 1.0,
-          "macro_precision": 0.75,
-          "macro_recall": 0.75,
-          "macro_f1": 0.75
+          "macro_precision": 1.0,
+          "macro_recall": 1.0,
+          "macro_f1": 1.0
         }
       },
       "source_type": {
@@ -188,9 +188,9 @@
         "emoji": {
           "n": 10,
           "accuracy": 1.0,
-          "macro_precision": 0.75,
-          "macro_recall": 0.75,
-          "macro_f1": 0.75
+          "macro_precision": 1.0,
+          "macro_recall": 1.0,
+          "macro_f1": 1.0
         },
         "emphatic": {
           "n": 8,
@@ -216,25 +216,25 @@
         "terse": {
           "n": 14,
           "accuracy": 1.0,
-          "macro_precision": 0.75,
-          "macro_recall": 0.75,
-          "macro_f1": 0.75
+          "macro_precision": 1.0,
+          "macro_recall": 1.0,
+          "macro_f1": 1.0
         },
         "typo": {
           "n": 9,
           "accuracy": 1.0,
-          "macro_precision": 0.75,
-          "macro_recall": 0.75,
-          "macro_f1": 0.75
+          "macro_precision": 1.0,
+          "macro_recall": 1.0,
+          "macro_f1": 1.0
         }
       },
       "is_sarcasm": {
         "true": {
           "n": 3,
           "accuracy": 1.0,
-          "macro_precision": 0.5,
-          "macro_recall": 0.5,
-          "macro_f1": 0.5
+          "macro_precision": 1.0,
+          "macro_recall": 1.0,
+          "macro_f1": 1.0
         },
         "false": {
           "n": 164,
@@ -248,9 +248,9 @@
         "true": {
           "n": 7,
           "accuracy": 1.0,
-          "macro_precision": 0.25,
-          "macro_recall": 0.25,
-          "macro_f1": 0.25
+          "macro_precision": 1.0,
+          "macro_recall": 1.0,
+          "macro_f1": 1.0
         },
         "false": {
           "n": 160,
@@ -404,16 +404,16 @@
     }
   },
   "data_quality": {
-    "issues": 27,
+    "issues": 28,
     "primary_key_violations": 0,
     "foreign_key_violations": 0,
     "duplicates": 4,
     "invalid_taxonomy": 6,
-    "privacy_violations": 4,
+    "privacy_violations": 5,
     "label_contradictions": 9,
     "target_leakage": 4,
-    "feedback_items_with_issues": 27,
-    "validation_pass_rate": 0.975893,
+    "feedback_items_with_issues": 28,
+    "validation_pass_rate": 0.975045,
     "checks_passed": 12,
     "checks_total": 17,
     "issues_by_rule": {
@@ -431,7 +431,7 @@
       "ARITHMETIC_RECONCILIATION": 0,
       "SOURCE_CONSISTENCY": 0,
       "THEME_TAXONOMY": 6,
-      "PRIVACY_LEAK": 4,
+      "PRIVACY_LEAK": 5,
       "LABEL_CONTRADICTION": 9,
       "TARGET_LEAKAGE": 4
     },
@@ -470,10 +470,20 @@
     "injected_total": 27,
     "injected_detected": 27,
     "detection_recall": 1.0,
-    "detection_precision": 1.0,
-    "unexplained_issues": 0,
-    "unexplained_by_rule": {},
-    "unexplained_examples": []
+    "detection_precision": 0.9643,
+    "unexplained_issues": 1,
+    "unexplained_by_rule": {
+      "PRIVACY_LEAK": 1
+    },
+    "unexplained_examples": [
+      {
+        "rule_code": "PRIVACY_LEAK",
+        "record_id": "FB-REV-2026-000502",
+        "entity_type": "FEEDBACK_ITEM",
+        "severity": "HIGH",
+        "resolution_action": "QUARANTINED"
+      }
+    ]
   },
   "business_intelligence": {
     "recurring_negative_themes_detected": 10,
@@ -562,23 +572,25 @@
     ],
     "scenario_recall_theme_alerts": 0.4,
     "scenario_recall_with_actions": 0.6,
-    "actions_generated": 7,
+    "actions_generated": 8,
     "actions_by_rule": {
+      "MANUAL": 1,
       "NEGATIVE_THEME_CONCENTRATION": 5,
       "SENTIMENT_SHIFT": 2
     },
     "actions_by_priority": {
       "CRITICAL": 2,
-      "HIGH": 5
+      "HIGH": 5,
+      "MEDIUM": 1
     },
     "evidence_traceability": {
-      "actions_with_complete_evidence": 7,
-      "actions_total": 7,
+      "actions_with_complete_evidence": 8,
+      "actions_total": 8,
       "traceability_rate": 1.0,
-      "evidence_links": 70,
+      "evidence_links": 73,
       "evidence_analysable_rate": 1.0,
-      "evidence_negative_rate": 1.0,
-      "evidence_theme_match_rate": 1.0
+      "evidence_negative_rate": 0.9863,
+      "evidence_theme_match_rate": 0.9726
     }
   },
   "reproducibility": {
