@@ -79,7 +79,7 @@ limitation.
 | Make reasoning visible: problem, assumptions, decisions, trade-offs, testing, limitations, how we know it works | README, `docs/architecture.md` (decisions and trade-offs), `docs/evaluation.md`, `AI_USAGE.md` | ✅ |
 | Free or local services only; avoid heavy dependencies | scikit-learn baselines, no paid APIs, no GPU | ✅ |
 | Partial work: state what works, what is incomplete, limitations, next steps, deviations | README "Limitations and next steps", this file | ✅ |
-| Nothing secret, personal or proprietary in the repo | `.env` git-ignored, synthetic data, placeholder commit e-mail | ✅ |
+| Nothing secret, personal or proprietary in the repo | `.env` git-ignored, synthetic data, no personal details beyond the commit author e-mail | ✅ |
 | Reuse only standard dependencies and small snippets; respect licences | only pinned open-source dependencies | ✅ |
 | Be ready to explain decisions and own the submission | `docs/architecture.md` and this matrix are the walkthrough guide | candidate |
 

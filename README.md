@@ -80,7 +80,7 @@ Prerequisites: Python 3.11, Git, and Docker Desktop (or a local PostgreSQL 16 se
 
 ```powershell
 # 1. Clone and create a virtual environment
-git clone <this-repo-url> insightpulse
+git clone https://github.com/ChinmayeePrasad327/InsightPulse.git insightpulse
 cd insightpulse
 py -3.11 -m venv .venv
 .\.venv\Scripts\Activate.ps1
@@ -123,7 +123,7 @@ If script execution is blocked, run `Set-ExecutionPolicy -Scope CurrentUser Remo
 ## Quick start (Linux / macOS)
 
 ```bash
-git clone <this-repo-url> insightpulse && cd insightpulse
+git clone https://github.com/ChinmayeePrasad327/InsightPulse.git insightpulse && cd insightpulse
 python3.11 -m venv .venv && source .venv/bin/activate
 pip install --upgrade pip && pip install -r requirements.txt
 cp .env.example .env                       # then edit the passwords and the evaluation token
