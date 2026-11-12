@@ -16,7 +16,7 @@ limitation.
 | Combine survey responses, reviews and support text | `feedback_items` unifies all three sources (exactly one source FK, enforced by a CHECK) | `tests/test_database.py`, `check_reconciliation` | ✅ |
 | Identify recurring themes, sentiment shifts and service priorities | Theme model, `trend_service.detect_shifts`, `action_service` rules and priorities | `docs/evaluation.md` (BI section), `tests/test_api.py` | ✅ |
 | Expose key decisions and exceptions; preserve traceability; measurable outputs | `data_quality_issues`, `state_change_events`, `action_evidence`, evidence IDs on alerts, evaluation report | `GET /api/validation/issues`, action detail evidence, `evaluation_report.json` | ✅ |
-| Actors: customer, marketing/sales ops, support agent, analyst, system administrator | Customer: `POST /api/feedback`. Ops and analyst: dashboard and analytics. Support: ticket data and support-theme actions. Admin: `POST /api/pipeline/run`, `/health`, validation | README "API" and "Dashboard" | ✅ |
+| Actors: customer, marketing/sales ops, support agent, analyst, system administrator | Customer: `POST /api/feedback`. Analyst with their own data: CSV upload (`POST /api/feedback/upload`, Upload Feedback page). Ops and analyst: dashboard and analytics. Support: ticket data and support-theme actions. Admin: `POST /api/pipeline/run`, `/health`, validation | README "API" and "Dashboard" | ✅ |
 | Workflow 1–2: master data first, then dependents with valid parent IDs | `generator/generate_data.py::build_dataset` order; `EntityPicker` | `tests/test_reproducibility.py::test_children_reference_existing_parents`, reproducibility report FK check | ✅ |
 | Workflow 3: product/channel taxonomy, balanced sentiment/theme labels, responses linked to dates and products, neutral/mixed/multilingual examples, theme taxonomy, actions from recurring themes | `generator/config.py` distributions, `text_templates.py`, `taxonomy.py`, `RECURRING_COMPLAINT` rule | Label distributions in `docs/evaluation.md` | ✅ |
 | Workflow 4: state changes stored as events, history never overwritten | `state_change_events`, `action_status_events`, append-only predictions | `tests/test_database.py::test_history_tables_are_append_only_by_design`, `tests/test_sentiment.py::test_prediction_history_is_append_only` | ✅ |
@@ -36,6 +36,7 @@ limitation.
 | Acceptance: sentiment and theme metrics are measurable | `evaluation_service` | `GET /api/evaluation/metrics`, `docs/evaluation.md` | ✅ |
 | Acceptance: privacy-safe synthetic text | `example.com` e-mails, fake numbers, PII quarantine | `docs/source_manifest.md`, `tests/test_validation.py::test_pii_detection` | ✅ |
 | Acceptance: trends traceable to source records | `evidence_feedback_ids` on every alert; `action_evidence` | `tests/test_api.py::test_action_detail_evidence_traceable` | ✅ |
+| Users can analyse their own feedback (added on the candidate's request, 2026-11-12) | `app/services/upload_service.py`, `dashboard/pages/7_Upload_Feedback.py`: per-row validation, privacy quarantine, duplicates, scoring, actions refresh | `tests/test_upload.py`, README "Try it with your own data" | ✅ |
 | Public data guidance | No external data used | `docs/source_manifest.md` | ✅ |
 
 ## Build specification
@@ -57,12 +58,12 @@ limitation.
 | 10D | Deterministic action rules with all 13 fields and no duplicate active action without a documented reason | `action_service`, `ux_action_active_issue`, `duplicate_reason` | `tests/test_api.py` (actions tests), `tests/test_database.py::test_no_duplicate_active_action_for_same_issue` | ✅ |
 | 11 | 5 injected edge cases, detection and handling, preserved history, `ground_truth.csv/json` with the required fields, separate evaluation permissions | `anomaly_injector.py`, validation, `evaluation_service` token | `tests/test_validation.py`, `tests/test_api.py::test_evaluation_requires_token` | ✅ |
 | 12 | 14 validation categories, machine-readable summary, injected vs unexplained | `validation_service.RULES`, `validate_data.py` | `validation_summary.json`, `validation_reconciliation.json` | ✅ |
-| 13 | 14 endpoints with request validation, schemas, pagination, filtering, errors, sessions, status codes, OpenAPI, real operations, protected evaluation | `app/api/routes/` | `tests/test_api.py`, `/docs` | ✅ |
+| 13 | 14 endpoints (plus 2 for CSV upload, added on request) with request validation, schemas, pagination, filtering, errors, sessions, status codes, OpenAPI, real operations, protected evaluation | `app/api/routes/` | `tests/test_api.py`, `/docs` | ✅ |
 | 14 | 8-page professional dashboard; Overview contents; Explorer filters, search and pagination; actions with evidence and status updates; DQ exceptions; evaluation matrices and reports; API-connected | `dashboard/` | screenshots checked during development; pages only call the API | ✅ |
 | 15 | Separate evaluation set; sentiment, theme, DQ, reproducibility and BI metrics computed, not invented | `evaluation_service.compute_metrics` | `evaluation_report.json`, `docs/evaluation.md` | ✅ |
 | 16 | Regenerate twice and compare; CSV, JSON, SQL seed, validation summary, ground truth, dictionary, manifest, README; provenance | `check_reproducibility.py`, `export_data.py`, docs | `data/exports/<scale>/` | ✅ |
 | 17 | Compose for PostgreSQL; local commands; 10-step workflow; PowerShell and Linux/macOS | `docker-compose.yml`, README | README quick starts | ✅ |
-| 18 | Tests for all 14 listed areas | `tests/` (102 tests) | `pytest -q` | ✅ |
+| 18 | Tests for all 14 listed areas | `tests/` (107 tests) | `pytest -q` | ✅ |
 | 19 | Phases 1–10 in order, MVP early | one commit per phase | `git log` | ✅ |
 | 20 | Engineering rules: no fake responses or hard-coded analytics, no GT features, nothing silently discarded or overwritten, consistent IDs, parents first, no unverified claims or invented metrics, no TODOs, logging, type hints, transactions, no secrets, bulk ops, configurable thresholds, 16 GB laptop, batching and pagination | across the code | full-scale timings and memory in `docs/evaluation.md`; `.env` git-ignored | ✅ |
 | 21 | 20 final deliverables | see README and this file | | ✅ |
@@ -89,7 +90,7 @@ limitation.
 |---|---|---|---|
 | Volume | Spec: 50k reviews **and** 50k responses | Problem statement: "50,000 reviews/responses" | 50k + 50k (+ 20k messages) satisfies both |
 | Entities | Problem statement: 10 core entities | Spec: 18 entities | All 18 are implemented, plus annotations and pipeline runs |
-| Dashboard pages | Spec structure lists 6 page files | Spec §14 requires 8 pages | Home is the Overview; the 6 named files are kept and Trend Detection is added (8 pages) |
+| Dashboard pages | Spec structure lists 6 page files | Spec §14 requires 8 pages | Home is the Overview; the 6 named files are kept and Trend Detection is added (8 pages). Upload Feedback was added later on request (9 pages) |
 | Response ID | Problem statement: `RESP-<survey-id>-001` | Spec: `RESP-SUR-2026-000001-001` | Identical format; enforced by a CHECK |
-| Tests | FAQ: test suite optional | Spec: tests for all critical functionality | 102 automated tests |
+| Tests | FAQ: test suite optional | Spec: tests for all critical functionality | 107 automated tests |
 | Live demo | FAQ: not required | n/a | Local run instructions plus Docker profile |

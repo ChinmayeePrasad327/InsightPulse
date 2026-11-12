@@ -120,6 +120,12 @@ Steps 5 to 8 can also be run as a single command:
 
 If script execution is blocked, run `Set-ExecutionPolicy -Scope CurrentUser RemoteSigned` once.
 
+If Docker Desktop reports a **WSL error** ("wsl.exe ... The system cannot find the file specified"), WSL
+is not installed. In an administrator terminal run
+`dism.exe /online /enable-feature /featurename:Microsoft-Windows-Subsystem-Linux /all /norestart` and
+`dism.exe /online /enable-feature /featurename:VirtualMachinePlatform /all /norestart`, restart, then run
+`wsl --update`. Alternatively, skip Docker: install PostgreSQL 16 for Windows and follow "Without Docker" below.
+
 ## Quick start (Linux / macOS)
 
 ```bash
@@ -177,6 +183,8 @@ the database.
 |---|---|
 | `GET /health` | Database connectivity, schema table count, feedback count, active model versions |
 | `GET /api/feedback` | Paginated list. Filters: product, channel, source, sentiment, theme, language, status, date range, text search `q`, `needs_review` |
+| `POST /api/feedback/upload` | Upload a CSV of feedback (only `text` is required, up to 2,000 rows). Each row is validated, privacy-checked, de-duplicated and scored; the response gives a status, sentiment and themes for every row |
+| `GET /api/feedback/upload/template` | A CSV template with every column and three example rows that use real product names |
 | `GET /api/feedback/{feedback_id}` | Source record, prediction history, data-quality issues, linked actions, status history |
 | `POST /api/feedback` | Submit feedback. It is validated, checked for personal data and duplicates, and scored, all in one transaction (201, 409, 422) |
 | `GET /api/analytics/overview` | KPIs, sentiment mix, top themes, weekly negative trend, priority actions, data-quality summary |
@@ -199,11 +207,28 @@ curl -s -H "X-Evaluation-Token: $EVALUATION_ACCESS_TOKEN" http://localhost:8000/
 
 ## Dashboard
 
-There are eight pages, and every one gets its data from the API: Overview (Home), Feedback Explorer
+There are nine pages, and every one gets its data from the API: Overview (Home), Feedback Explorer
 (filters, search, pagination, detail view), Sentiment Analysis, Theme Analysis, Trend Detection
 (configurable alert thresholds), Business Actions (evidence and status updates), Data Quality and
-Exceptions, and Model Evaluation (metrics, confusion matrices, classification reports; reads the token
-from `.env`). If the API is down, or a page has no data yet, it shows an explanatory empty state.
+Exceptions, Model Evaluation (metrics, confusion matrices, classification reports; reads the token
+from `.env`), and Upload Feedback (see below). If the API is down, or a page has no data yet, it shows
+an explanatory empty state.
+
+## Try it with your own data
+
+1. Open the **Upload Feedback** page in the dashboard and click **Download template**.
+2. Replace the example rows with your own feedback. Only `text` is required. Reviews also need a
+   `rating` (1 to 5) and a `product_name` from the catalogue (the template shows the format).
+   `feedback_date` (`YYYY-MM-DD`) places a review on the trend charts.
+3. Upload the file and click **Upload and analyse**. You get a status for every row (analysed,
+   quarantined for personal data, duplicate, or rejected with the reason), plus the sentiment,
+   confidence and themes, charts of the results and a downloadable results CSV.
+4. With **Refresh business actions** ticked, the action rules run again, so a cluster of complaints in
+   your upload can raise an action. The new rows also appear in every other page.
+
+Without the dashboard: `curl -F "file=@my_feedback.csv" http://localhost:8000/api/feedback/upload`.
+Rows without a `customer_id` are attributed to a single synthetic guest customer (`CUS-999999`).
+Uploaded rows have no ground-truth label, so they are scored but never counted in the evaluation metrics.
 
 ## Tests and verification
 
@@ -211,7 +236,7 @@ from `.env`). If the API is down, or a page has no data yet, it shows an explana
 pytest -q          # uses TEST_DATABASE_URL (insightpulse_test) and a temporary data/model folder
 ```
 
-The suite has 102 tests in 7 modules. It generates starter data and runs the whole pipeline against
+The suite has 107 tests in 8 modules. It generates starter data and runs the whole pipeline against
 the test database. It covers ID generation, data generation and deterministic reproducibility,
 database constraints and foreign keys, every validation rule (duplicates, personal data, taxonomy,
 leakage), sentiment and theme predictions, action generation (fields, no duplicates, idempotency,
@@ -274,6 +299,7 @@ prompts/        verbatim prompt history       AI_USAGE.md   AI usage disclosure
 | Theme alerts need weekly volume | Low-volume shifts (starter scale) are found by action rules rather than alerts | Bayesian or Poisson baselines for small counts; per-product alerting |
 | Prediction history grows with every run | Table size at many re-scoring runs | Partition by run and archive superseded runs |
 | No authentication on the API and dashboard (besides evaluation) | Fine for a local MVP only | OAuth2/OIDC in front of the API; role-based dashboard |
+| The product, channel and customer catalogue is synthetic | Uploaded feedback must name a product from it | Add catalogue upload (products, customers) alongside feedback upload |
 | Thresholds were set by inspecting synthetic data | They may not suit a real business | Tune them with stakeholders; the values live in `.env` |
 
 What works: every item in the [requirements traceability matrix](docs/requirements_traceability.md)

@@ -3,14 +3,16 @@ from __future__ import annotations
 
 from datetime import date
 
-from fastapi import APIRouter, Depends, HTTPException, Query, status
+from fastapi import APIRouter, Depends, File, HTTPException, Query, UploadFile, status
+from fastapi.responses import PlainTextResponse
 from sqlalchemy.orm import Session
 
 from app.core.database import get_db
 from app.core.taxonomy import ALLOWED_THEME_IDS
-from app.schemas.api import FeedbackCreate, FeedbackDetail, FeedbackPage, SentimentLit, SourceTypeLit
+from app.schemas.api import FeedbackCreate, FeedbackDetail, FeedbackPage, SentimentLit, SourceTypeLit, UploadResult
 from app.schemas.common import page_meta
 from app.services import feedback_service as fs
+from app.services import upload_service as us
 
 router = APIRouter(prefix="/api/feedback", tags=["feedback"])
 
@@ -37,6 +39,29 @@ def list_feedback(
     items, total = fs.list_feedback(db, page, page_size, product_id, channel_id, source_type, sentiment, theme_id,
                                     language, status_, date_from, date_to, q, needs_review)
     return FeedbackPage(items=items, meta=page_meta(page, page_size, total))
+
+
+@router.get("/upload/template", response_class=PlainTextResponse,
+            summary="Download a CSV template for bulk upload (columns plus three example rows)")
+def upload_template(db: Session = Depends(get_db)) -> PlainTextResponse:
+    return PlainTextResponse(us.template_csv(db), media_type="text/csv",
+                             headers={"Content-Disposition": "attachment; filename=insightpulse_upload_template.csv"})
+
+
+@router.post("/upload", response_model=UploadResult,
+             summary="Upload a CSV of feedback: every row is validated, privacy-checked, de-duplicated and scored",
+             responses={422: {"description": "The file cannot be read (encoding, header, size or row limit)"}})
+def upload_feedback(file: UploadFile = File(..., description="UTF-8 CSV; only the `text` column is required"),
+                          db: Session = Depends(get_db)) -> UploadResult:
+    raw = file.file.read(us.MAX_BYTES + 1)
+    try:
+        return UploadResult(**us.process_upload(db, raw, file.filename or "upload.csv"))
+    except us.UploadFileError as exc:
+        db.rollback()
+        raise HTTPException(status.HTTP_422_UNPROCESSABLE_ENTITY, str(exc)) from exc
+    except Exception:
+        db.rollback()
+        raise
 
 
 @router.get("/{feedback_id}", response_model=FeedbackDetail,

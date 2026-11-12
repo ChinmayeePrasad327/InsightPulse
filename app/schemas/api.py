@@ -1,7 +1,7 @@
 """Pydantic request/response schemas for the REST API."""
 from __future__ import annotations
 
-from datetime import date, datetime
+from datetime import date, datetime, timezone
 from typing import Any, Literal
 
 from pydantic import BaseModel, ConfigDict, Field, field_validator, model_validator
@@ -95,6 +95,9 @@ class FeedbackCreate(BaseModel):
     ticket_id: str | None = Field(default=None, pattern=r"^TKT-\d{4}-\d{6}$")
     language: Literal["en", "hi", "te"] | None = None
     verified_purchase: bool = False
+    feedback_date: datetime | None = Field(
+        default=None, description="REVIEW only: when the review was written (defaults to now). "
+                                  "Must not be in the future or before the product's launch date.")
 
     @field_validator("text")
     @classmethod
@@ -116,7 +119,42 @@ class FeedbackCreate(BaseModel):
                 raise ValueError("ticket_id is required for SUPPORT_MESSAGE")
             if self.rating is not None:
                 raise ValueError("support messages do not carry a rating")
+        if self.feedback_date is not None:
+            if self.source_type != "REVIEW":
+                raise ValueError("feedback_date can only be set for REVIEW (survey and support dates come from "
+                                 "the survey window and the ticket)")
+            fd = self.feedback_date if self.feedback_date.tzinfo else self.feedback_date.replace(tzinfo=timezone.utc)
+            if fd > datetime.now(timezone.utc):
+                raise ValueError("feedback_date must not be in the future")
+            self.feedback_date = fd
         return self
+
+
+class UploadRowResult(BaseModel):
+    row: int = Field(description="Line number in the CSV (the header is line 1)")
+    status: Literal["CREATED", "QUARANTINED", "DUPLICATE", "REJECTED"]
+    feedback_id: str | None = None
+    source_type: SourceTypeLit | None = None
+    product_id: str | None = None
+    product_name: str | None = None
+    text: str
+    language: str | None = None
+    sentiment: SentimentLit | None = None
+    confidence: float | None = None
+    needs_human_review: bool | None = None
+    themes: list[str] = Field(default_factory=list)
+    error: str | None = None
+
+
+class UploadResult(BaseModel):
+    run_id: str
+    filename: str
+    rows_total: int
+    created: int
+    quarantined: int
+    duplicates: int
+    rejected: int
+    results: list[UploadRowResult]
 
 
 # ----------------------------------------------------------------- actions --

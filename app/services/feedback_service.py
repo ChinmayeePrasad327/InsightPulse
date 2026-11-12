@@ -154,9 +154,11 @@ def _exists(db: Session, table: str, col: str, value: str) -> dict | None:
     return db.execute(text(f"SELECT * FROM {table} WHERE {col} = :v"), {"v": value}).mappings().first()
 
 
-def create_feedback(db: Session, req, triggered_by: str = "api") -> str:
-    """Create source record + feedback item, validate, score. Caller commits."""
-    now = datetime.now(timezone.utc)
+def create_feedback(db: Session, req, triggered_by: str = "api", run_id: str | None = None) -> str:
+    """Create source record + feedback item, validate, score. Caller commits.
+
+    ``run_id``: attach the item to an existing INFERENCE run (bulk upload) instead of creating one."""
+    now = getattr(req, "feedback_date", None) or datetime.now(timezone.utc)
     if not _exists(db, "customers", "customer_id", req.customer_id):
         raise FeedbackValidationError(f"customer_id {req.customer_id} does not exist")
     product_id, channel_id = req.product_id, req.channel_id
@@ -188,6 +190,9 @@ def create_feedback(db: Session, req, triggered_by: str = "api") -> str:
     db.execute(text("SELECT pg_advisory_xact_lock(hashtext(:k))"), {"k": f"id:{lock_key}"})
 
     if req.source_type == "REVIEW":
+        if now.date() < product["launch_date"]:
+            raise FeedbackValidationError(f"feedback_date {now.date()} is before {product_id} launched "
+                                          f"({product['launch_date']})")
         dup = db.execute(text("""SELECT review_id FROM reviews WHERE customer_id = :c AND product_id = :p
                                    AND lower(regexp_replace(btrim(review_text), '\\s+', ' ', 'g')) = lower(:x)
                                  ORDER BY review_id LIMIT 1"""),
@@ -240,10 +245,8 @@ def create_feedback(db: Session, req, triggered_by: str = "api") -> str:
                 "rv": sid if req.source_type == "REVIEW" else None,
                 "sm": sid if req.source_type == "SUPPORT_MESSAGE" else None, "c": req.customer_id, "p": product_id,
                 "ch": channel_id, "d": now, "r": req.rating, "x": body, "l": lang, "h": text_hash(body)})
-    run_id = db.execute(text("""INSERT INTO pipeline_runs (run_id, run_type, status, triggered_by, parameters, finished_at)
-                                VALUES ('RUN-' || lpad(nextval('pipeline_run_seq')::text, 6, '0'), 'INFERENCE',
-                                        'SUCCEEDED', :by, CAST(:p AS jsonb), now()) RETURNING run_id"""),
-                        {"by": triggered_by, "p": json.dumps({"feedback_id": fid})}).scalar_one()
+    if run_id is None:
+        run_id = create_inference_run(db, triggered_by, {"feedback_id": fid})
     _event(db, fid, None, "INGESTED", "api create", run_id)
 
     # Inline validation: privacy and duplicate checks
@@ -285,10 +288,17 @@ def create_feedback(db: Session, req, triggered_by: str = "api") -> str:
             return fid
         db.execute(text("UPDATE feedback_items SET processing_status = 'PROCESSED' WHERE feedback_id = :f"), {"f": fid})
         db.execute(text("UPDATE pipeline_runs SET sentiment_model_version = :s, theme_model_version = :t, "
-                        "summary = CAST(:sum AS jsonb) WHERE run_id = :r"),
-                   {"s": sv, "t": tv, "r": run_id, "sum": json.dumps({"scored": 1})})
+                        "summary = jsonb_set(summary, '{scored}', to_jsonb(COALESCE((summary->>'scored')::int, 0) + 1)) "
+                        "WHERE run_id = :r"), {"s": sv, "t": tv, "r": run_id})
         _event(db, fid, "VALIDATED", "PROCESSED", "scored", run_id)
     return fid
+
+
+def create_inference_run(db: Session, triggered_by: str, parameters: dict) -> str:
+    return db.execute(text("""INSERT INTO pipeline_runs (run_id, run_type, status, triggered_by, parameters, finished_at)
+                              VALUES ('RUN-' || lpad(nextval('pipeline_run_seq')::text, 6, '0'), 'INFERENCE',
+                                      'SUCCEEDED', :by, CAST(:p AS jsonb), now()) RETURNING run_id"""),
+                      {"by": triggered_by, "p": json.dumps(parameters)}).scalar_one()
 
 
 def _event(db: Session, fid: str, frm: str | None, to: str, reason: str, run_id: str | None) -> None:

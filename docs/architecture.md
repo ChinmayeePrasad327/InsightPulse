@@ -31,7 +31,7 @@ flowchart LR
     EV[evaluation_service<br/>token-protected] --> GT
     EV --> DB
     API -- X-Evaluation-Token --> EV
-    UI[Streamlit dashboard<br/>8 pages] -- HTTP only --> API
+    UI[Streamlit dashboard<br/>9 pages] -- HTTP only --> API
 ```
 
 ## Layers
